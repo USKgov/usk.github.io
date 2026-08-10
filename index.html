@@ -32,6 +32,9 @@
             border-bottom: 4px solid #d4af37;
             padding: 12px 0;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         header .container {
@@ -48,13 +51,13 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 45px;
             width: auto;
             display: block;
         }
 
         .logo h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 900;
             color: #1e1e1e;
         }
@@ -79,43 +82,28 @@
             border-bottom-color: #d4af37;
         }
 
-        /* ========== بنر اصلی (با لوگو) ========== */
+        /* ========== بنر اصلی ========== */
         .hero {
             background: #faf6ed;
             border: 1px solid #e8dcc8;
             border-radius: 18px;
-            padding: 40px 30px;
+            padding: 60px 30px;
             margin: 35px 0 30px;
             text-align: center;
             box-shadow: 0 6px 24px rgba(212, 175, 55, 0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
         }
 
-        .hero-logo {
-            max-width: 100%;
-            height: auto;
-            max-height: 200px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            border: 3px solid #d4af37;
-            padding: 8px;
-            background: white;
-        }
-
-        .hero-text h2 {
+        .hero h2 {
             font-size: 34px;
             font-weight: 900;
             color: #1e1e1e;
         }
 
-        .hero-text h2 span {
+        .hero h2 span {
             color: #d4af37;
         }
 
-        .hero-text p {
+        .hero p {
             font-size: 18px;
             color: #3a3a3a;
             max-width: 700px;
@@ -140,7 +128,7 @@
             transform: scale(1.02);
         }
 
-        /* ========== بخش‌های دیگر (درباره، اخبار، تماس) ========== */
+        /* ========== بخش‌های دیگر ========== */
         .section-title {
             font-size: 28px;
             font-weight: 800;
@@ -222,7 +210,6 @@
             font-size: 13px;
         }
 
-        /* ========== تماس با ما ========== */
         .contact-section p {
             font-size: 17px;
             margin: 6px 0;
@@ -236,6 +223,71 @@
 
         .contact-section a:hover {
             text-decoration: underline;
+        }
+
+        /* ========== بخش جنگ‌ها (حالت کارتی) ========== */
+        .war-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .war-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 22px 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            border-top: 6px solid #d4af37;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .war-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+        }
+
+        .war-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 4px;
+        }
+
+        .war-card .caption {
+            font-size: 13px;
+            color: #888;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .war-card h3 {
+            font-size: 22px;
+            color: #1e1e1e;
+            margin-bottom: 4px;
+        }
+
+        .war-card .date {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .war-card .location {
+            font-size: 14px;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .war-card p {
+            color: #2c3e50;
+            font-size: 15px;
+            text-align: justify;
+            flex-grow: 1;
         }
 
         /* ========== فوتر ========== */
@@ -271,31 +323,25 @@
                 flex-direction: column;
                 text-align: center;
             }
-
             .logo {
                 flex-direction: column;
                 text-align: center;
             }
-
             nav {
                 margin-top: 12px;
             }
-
             nav a {
                 margin: 0 8px;
                 font-size: 14px;
             }
-
-            .hero-text h2 {
+            .hero h2 {
                 font-size: 26px;
             }
-
-            .hero-logo {
-                max-height: 150px;
-            }
-
             .info-cols {
                 grid-template-columns: 1fr 1fr;
+            }
+            .war-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -307,15 +353,12 @@
     <div class="container">
         <div class="logo">
             <img src="https://cdn.imgurl.ir/uploads/i40270_Picsart_25-05-30_16-57-45-704.png" alt="لوگوی کادریا" />
-         <h1>
-    <img src="" alt="پرچم کادریا" style="width: 28px; height: 28px; border-radius: 4px; vertical-align: middle; margin-left: 8px;" />
-    ایالات متحده <span>کادریا</span>
-         </h1>
+            <h1>ایالات متحده <span>کادریا</span></h1>
         </div>
         <nav>
-            <a href="#">خانه</a>
+            <a href="#home">خانه</a>
             <a href="#about">درباره</a>
-            <a href="#news">اخبار</a>
+            <a href="#wars">جنگ‌ها</a>
             <a href="#contact">تماس</a>
         </nav>
     </div>
@@ -324,13 +367,12 @@
 <!-- ====== محتوای اصلی ====== -->
 <main class="container">
 
-    <!-- ====== بنر اصلی ====== -->
-    <section class="hero">
-        <img class="hero-logo" src="https://cdn.imgurl.ir/uploads/i40270_Picsart_25-05-30_16-57-45-704.png" alt="لوگوی رسمی کادریا" />
+    <!-- ====== بخش خانه (بنر) ====== -->
+    <section id="home" class="hero">
         <div class="hero-text">
             <h2>به وبسایت رسمی <span>کادریا</span> خوش آمدید</h2>
             <p>کشوری پیشرو در توسعه، فناوری و همکاری‌های بین‌المللی.</p>
-            <a href="#about" class="btn-gold">آشنایی با کادریا</a>
+            <a href="#wars" class="btn-gold">مروری بر جنگ‌ها</a>
         </div>
     </section>
 
@@ -373,32 +415,47 @@
         </div>
     </section>
 
-    <!-- ====== تماس با ما ====== -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title" style="border-right: none; padding-right: 0; text-align: center;">📢 ما را دنبال کنید</h2>
-        <p style="text-align: center; font-size: 18px;">
-            <strong>کانال رسمی تلگرام:</strong><br />
-            <a href="https://t.me/USKOFFI" target="_blank">t.me/USKOFFI</a>
-        </p>
-    </section>
+    <!-- ====== بخش جنگ‌ها ====== -->
+    <section id="wars">
+        <h2 class="section-title">⚔️ مروری بر جنگ‌ها</h2>
+        <p class="subtitle" style="color: #555; font-size: 18px; margin-bottom: 20px;">روایتی تاریخی از نبردهایی که سرنوشت کادریا را رقم زدند.</p>
 
-</main>
+        <div class="war-grid">
 
-<!-- ====== فوتر ====== -->
-<footer>
-    <div class="container">
-        <div>
-            <a href="#">خانه</a>
-            <a href="#about">درباره</a>
-            <a href="#news">اخبار</a>
-            <a href="#contact">تماس</a>
-        </div>
-        <div class="copy">
-            © ۲۰۲۶ تمامی حقوق برای ایالات متحدهٔ کادریا محفوظ است.
-        </div>
-    </div>
-</footer>
+            <!-- جنگ اول: جنگ جوانستان -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/y318270_IMG_20260810_204130_137.jpg" alt="جنگنده E10 جوانستانی سرنگون شده" />
+                <div class="caption">📸 جنگنده E10 جوانستانی سرنگون شده</div>
+                <img src="https://cdn.imgurl.ir/uploads/m87986_IMG_20260810_204819_826.jpg" alt="امضای تفاهم‌نامه موقت صلح" />
+                <div class="caption">📸 امضای تفاهم‌نامه موقت صلح و تبادل اسرا - از راست: رئیس‌جمهور کادریا، رئیس‌جمهور جوانستان</div>
+                <img src="https://cdn.imgurl.ir/uploads/v78854_IMG_20260810_203853_538.jpg" alt="رئیس جمهور جوانستان در دادگاه بین المللی" />
+                <div class="caption">📸 رئیس جمهور جوانستان در دادگاه بین المللی</div>
+                
+                <h3>⚔️ جنگ جوانستان</h3>
+                <div class="date">📅 ۱۵ ژانویه ۲۰۲۳ – ۱۵ ژانویه ۲۰۲۵</div>
+                <div class="location">📍 مرزهای جنوبی کادریا</div>
+                <p>
+                    جنگ جوانستان، اولین درگیری نظامی بزرگ در تاریخ ایالات متحده کادریا بود که در میانه دی‌ماه ۱۴۰۱ با یک حمله‌ی غافلگیرانه از سوی نیروهای جوانستان به مناطق مرزی جنوبی آغاز شد. این تجاوز آشکار، که بدون هیچ هشدار قبلی صورت گرفت، موجب به حرکت درآمدن تمامی ظرفیت‌های دفاعی کادریا شد. آنچه در ابتدا یک تهاجم کوتاه‌مدت به نظر می‌رسید، به جنگی تمام‌عیار و دو ساله تبدیل گردید که در طی آن، نبردهای سنگین و عملیات‌های گسترده‌ای در جبهه‌های جنوبی رخ داد. نیروهای مسلح کادریا با وجود غافلگیری اولیه، با اتکا به آموزش دیده‌گی، روحیه‌ی جنگاوری و پشتیبانی مردمی، توانستند موج‌های پیاپی حملات دشمن را دفع کنند. ضدحمله‌های استراتژیک و هوشمندانه‌ی کادریا، آرایش دفاعی جوانستان را در هم شکست و آنان را مجبور به عقب‌نشینی کرد. سرانجام، با میانجی‌گری سازمان‌های بین‌المللی و کاهش توان نظامی طرفین، آتش‌بسی برقرار شد که زمینه‌ساز صلحی پایدار و تبادل اسرای جنگی گردید. این جنگ، اگرچه خسارات مادی و معنوی زیادی بر جای گذاشت، اما به عنوان نقطه‌ی عطفی در شکل‌گیری هویت دفاعی و وحدت ملی کادریا در تاریخ ثبت شد.
+                </p>
+            </div>
 
-</body>
-</html>
+            <!-- جنگ دوم: جنگ خلیج کادر -->
+            <div class="war-card">
+                <h3>⚓ جنگ خلیج کادر</h3>
+                <div class="date">📅 ۲۰۲۴</div>
+                <div class="location">📍 سرزمین ایالات متحده کادریا</div>
+                <p>
+                    جنگ خلیج کادر، یکی از کوتاه‌مدت‌ترین اما سرنوشت‌سازترین درگیری‌های نظامی در منطقه بود که در سال ۲۰۲۴ به وقوع پیوست. این جنگ، مجموعه حملات هماهنگ ارتش متفق جوانستان و قهرمانلند به خاک ایالات متحده کادریا بود که با هدف تصرف سریع سرزمین‌های حاصل‌خیز و تأسیسات استراتژیک جنوبی طراحی شده بود. متفقین با بهره‌گیری از برتری عددی و غافلگیری تاکتیکی، توانستند در نخستین روزهای تهاجم، بخش‌های وسیعی از خاک کادریا از جمله مناطق ساحلی خلیج کادر را به اشغال خود درآورند. این اشغال کامل، ضربه‌ی سنگینی به روحیه‌ی ملی و توان دفاعی کادریا وارد کرد. با این حال، نیروهای باقی‌مانده‌ی ارتش کادریا که موفق به عقب‌نشینی به سمت شمال و استقرار در کشور هم‌پیمان حکمتستان شده بودند، با حمایت همه‌جانبه‌ی آن کشور، عملیات گسترده‌ی بازپس‌گیری را با نام «سپر آتشین» طراحی و اجرا کردند. این عملیات که با هماهنگی اطلاعاتی و پشتیبانی هوایی دقیق انجام شد، توانست در کمتر از چند ماه، خطوط دفاعی متفقین را در هم بشکند و تمامی مناطق اشغالی را آزاد کند. جنگ خلیج کادر، اگرچه کوتاه بود، اما درسی ماندگار از همبستگی ملی و اهمیت اتحادهای راهبردی برای کادریا به یادگار گذاشت.
+                </p>
+            </div>
 
+            <!-- جنگ سوم: جنگ کلاسی -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/q815914_IMG_20260810_204411_038.jpg" alt="عبدالآراد شریف، الشیخ وحیدی، فرد مجهول" />
+                <div class="caption">📸 از راست: عبدالآراد شریف، الشیخ وحیدی، فرد مجهول</div>
+                
+                <h3>⚔️ جنگ کلاسی</h3>
+                <div class="date">📅 ۲۰۲۵</div>
+                <div class="location">📍 مناطق مرزی داخلی کادریا</div>
+                <p>
+                    جنگ کلاسی، اگرچه در مقیاسی کوچک‌تر از دیگر درگیری‌ها رخ داد، اما از نظر تأثیر بر ساختارهای نظامی و سیاسی داخلی، بسیار پرمعنا و تأثیرگذار بود. این جنگ کوتاه‌مدت، بر اثر تنش‌های عمیق و ریشه‌دار میان دو گروه نظامی-سیاسی ۹۰۱ (جیش الوحیدی) و ۹۰۲ شکل گرفت که هر دو از ستون‌های اصلی تأمین امنیت داخلی محسوب می‌شدند. اختلافات بر سر نحوه‌ی توزیع منابع، حوزه‌های نفوذ و تفاسیر متفاوت از آیین‌نامه‌های عملیاتی، به تدریج فضای همکاری را به رویارویی کشاند. این کشمکش داخلی که در اوایل سال ۲۰۲۵ به اوج خود رسید، می‌توانست به یک بحران تمام‌عیار امنیتی منجر شود. اما خردورزی فرماندهان ارشد و مداخله‌ی به‌موقع و غیرمحسوس میانجی‌گران با نفوذ، راه را برای مذاکره و گفتگو هموار ساخت. پس از چند دور نشست فشرده و تبادل امتی
