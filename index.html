@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ایالات متحده کادریا | وبسایت رسمی</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            background: #fcf9f2;
+            color: #1e1e1e;
+            line-height: 1.8;
+            direction: rtl;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 0;
+        }
+
+        /* ========== هدر ========== */
+        header {
+            background: #ffffff;
+            border-bottom: 4px solid #d4af37;
+            padding: 12px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            font-weight: 900;
+            color: #1e1e1e;
+        }
+
+        .logo h1 span {
+            color: #d4af37;
+        }
+
+        nav a {
+            color: #1e1e1e;
+            text-decoration: none;
+            margin: 0 14px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+            border-bottom-color: #d4af37;
+        }
+
+        /* ========== بنر اصلی (با لوگو) ========== */
+        .hero {
+            background: #faf6ed;
+            border: 1px solid #e8dcc8;
+            border-radius: 18px;
+            padding: 40px 30px;
+            margin: 35px 0 30px;
+            text-align: center;
+            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-logo {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            border: 3px solid #d4af37;
+            padding: 8px;
+            background: white;
+        }
+
+        .hero-text h2 {
+            font-size: 34px;
+            font-weight: 900;
+            color: #1e1e1e;
+        }
+
+        .hero-text h2 span {
+            color: #d4af37;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #3a3a3a;
+            max-width: 700px;
+            margin: 12px auto 18px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: #d4af37;
+            color: #fff;
+            padding: 12px 38px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-gold:hover {
+            background: #c09c2b;
+            transform: scale(1.02);
+        }
+
+        /* ========== بخش‌های دیگر (درباره، اخبار، تماس) ========== */
+        .section-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 45px 0 22px;
+            border-right: 7px solid #d4af37;
+            padding-right: 18px;
+            color: #1e1e1e;
+        }
+
+        .about-box,
+        .contact-section {
+            background: #ffffff;
+            padding: 32px 30px;
+            border-radius: 18px;
+            margin: 30px 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border-right: 6px solid #d4af37;
+        }
+
+        .about-box p {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .info-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            background: #f5f0e6;
+            padding: 14px 12px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e8dcc8;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 20px;
+            color: #1e1e1e;
+        }
+
+        .info-item span {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .news-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border-top: 5px solid #d4af37;
+            margin-top: 15px;
+        }
+
+        .news-card .tag {
+            display: inline-block;
+            background: #d4af37;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 14px;
+            border-radius: 30px;
+            margin-bottom: 8px;
+        }
+
+        .news-card h3 {
+            color: #1e1e1e;
+            font-size: 20px;
+        }
+
+        .news-card .date {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* ========== تماس با ما ========== */
+        .contact-section p {
+            font-size: 17px;
+            margin: 6px 0;
+        }
+
+        .contact-section a {
+            color: #d4af37;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========== فوتر ========== */
+        footer {
+            background: #ffffff;
+            border-top: 4px solid #d4af37;
+            text-align: center;
+            padding: 28px 0 18px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #1e1e1e;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        footer .copy {
+            margin-top: 12px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* ========== ریسپانسیو ========== */
+        @media (max-width: 750px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .hero-text h2 {
+                font-size: 26px;
+            }
+
+            .hero-logo {
+                max-height: 150px;
+            }
+
+            .info-cols {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====== هدر ====== -->
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="https://cdn.imgurl.ir/uploads/i40270_Picsart_25-05-30_16-57-45-704.png" alt="لوگوی کادریا" />
+            <h1>ایالات متحده <span>کادریا</span></h1>
+        </div>
+        <nav>
+            <a href="#">خانه</a>
+            <a href="#about">درباره</a>
+            <a href="#news">اخبار</a>
+            <a href="#contact">تماس</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ====== محتوای اصلی ====== -->
+<main class="container">
+
+    <!-- ====== بنر اصلی ====== -->
+    <section class="hero">
+        <img class="hero-logo" src="https://cdn.imgurl.ir/uploads/i40270_Picsart_25-05-30_16-57-45-704.png" alt="لوگوی رسمی کادریا" />
+        <div class="hero-text">
+            <h2>به وبسایت رسمی <span>کادریا</span> خوش آمدید</h2>
+            <p>کشوری پیشرو در توسعه، فناوری و همکاری‌های بین‌المللی.</p>
+            <a href="#about" class="btn-gold">آشنایی با کادریا</a>
+        </div>
+    </section>
+
+    <!-- ====== درباره ما ====== -->
+    <section id="about" class="about-box">
+        <h2 class="section-title" style="border-right: none; padding-right: 0;">🇺🇸 دربارهٔ ایالات متحدهٔ کادریا</h2>
+        <p>
+            کادریا کشوری در <strong>کمپرسی میانه</strong> است که از شمال با <strong>حکمتستان</strong> و از جنوب با <strong>جوانستان</strong> هم‌مرز است. این کشور با تکیه بر مشارکت عمومی، شفافیت و توسعهٔ پایدار، مسیر پیشرفت خود را در عرصه‌های داخلی و بین‌المللی هموار می‌کند.
+        </p>
+        <div class="info-cols">
+            <div class="info-item">
+                <strong>۲۰۲۳</strong>
+                <span>تاریخ تأسیس</span>
+            </div>
+            <div class="info-item">
+                <strong>دموکراسی</strong>
+                <span>نظام حکومتی</span>
+            </div>
+            <div class="info-item">
+                <strong>حکمتستان (شمال)</strong>
+                <span>همسایه</span>
+            </div>
+            <div class="info-item">
+                <strong>جوانستان (جنوب)</strong>
+                <span>همسایه</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== اخبار رسمی ====== -->
+    <section id="news">
+        <h2 class="section-title">🗞️ اخبار رسمی</h2>
+        <div class="news-card">
+            <span class="tag">سیاسی</span>
+            <h3>🇺🇸 وبسایت رسمی ایالات متحدهٔ کادریا افتتاح شد</h3>
+            <div class="date">۱۰ آگوست ۲۰۲۶</div>
+            <p>
+                وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد. این وبسایت شامل بخش‌های مختلفی از جمله معرفی کشور، اخبار رسمی و تماس با نهادهای دولتی است. شهروندان می‌توانند از این پس اخبار و بیانیه‌های رسمی را از این مرجع پیگیری کنند.
+            </p>
+        </div>
+    </section>
+
+    <!-- ====== تماس با ما ====== -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title" style="border-right: none; padding-right: 0; text-align: center;">📢 ما را دنبال کنید</h2>
+        <p style="text-align: center; font-size: 18px;">
+            <strong>کانال رسمی تلگرام:</strong><br />
+            <a href="https://t.me/USKOFFI" target="_blank">t.me/USKOFFI</a>
+        </p>
+    </section>
+
+</main>
+
+<!-- ====== فوتر ====== -->
+<footer>
+    <div class="container">
+        <div>
+            <a href="#">خانه</a>
+            <a href="#about">درباره</a>
+            <a href="#news">اخبار</a>
+            <a href="#contact">تماس</a>
+        </div>
+        <div class="copy">
+            © ۲۰۲۶ تمامی حقوق برای ایالات متحدهٔ کادریا محفوظ است.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
