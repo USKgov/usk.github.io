@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ایالات متحده کادریا | وبسایت رسمی</title>
     
-    <!-- ====== فونت وزیر ====== -->
+    <!-- ====== فونت ایران سنس ====== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Iranian+Sans&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,7 +21,7 @@
         }
 
         body {
-            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            font-family: 'Iranian Sans', 'Vazirmatn', 'Tahoma', sans-serif;
             background: #fcf9f2;
             color: #1e1e1e;
             line-height: 1.9;
@@ -50,7 +49,7 @@
             padding: 15px 0;
         }
 
-        /* ====== هدر ====== */
+        /* ====== هدر با لوگو و منو ====== */
         header {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
@@ -64,20 +63,39 @@
 
         header .container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            display: block;
         }
 
         .logo h1 {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 900;
             color: #1e1e1e;
             letter-spacing: 1px;
+            margin: 0;
         }
 
         .logo h1 span {
             color: #d4af37;
+        }
+
+        nav {
+            margin-top: 8px;
         }
 
         nav a {
@@ -111,7 +129,7 @@
             width: 100%;
         }
 
-        /* ====== بنر ====== */
+        /* ====== بنر اصلی ====== */
         .hero {
             background: linear-gradient(145deg, #faf6ed, #f3ecdb);
             border: 1px solid #e8dcc8;
@@ -209,6 +227,13 @@
             margin: 30px 0;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
             border-right: 6px solid #d4af37;
+            transition: 0.3s ease;
+        }
+
+        .about-box:hover,
+        .contact-section:hover {
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.08);
+            transform: translateY(-2px);
         }
 
         .about-box p {
@@ -231,6 +256,13 @@
             border-radius: 14px;
             text-align: center;
             border: 1px solid #e8dcc8;
+            transition: 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #f0ead9;
+            transform: translateY(-3px);
+            border-color: #d4af37;
         }
 
         .info-item strong {
@@ -252,6 +284,12 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             border-top: 5px solid #d4af37;
             margin-top: 15px;
+            transition: 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.08);
         }
 
         .news-card .tag {
@@ -263,6 +301,7 @@
             padding: 2px 16px;
             border-radius: 30px;
             margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
         .news-card h3 {
@@ -285,9 +324,15 @@
             color: #d4af37;
             font-weight: 600;
             text-decoration: none;
+            transition: 0.3s ease;
+            border-bottom: 1px dotted transparent;
         }
 
-        /* ====== کارت‌های جنگ ====== */
+        .contact-section a:hover {
+            border-bottom-color: #d4af37;
+        }
+
+        /* ====== کارت‌های جنگ با توضیحات کامل و طولانی ====== */
         .war-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -308,24 +353,12 @@
             opacity: 0;
         }
 
-        .war-card:nth-child(1) {
-            animation-delay: 0.05s;
-        }
-        .war-card:nth-child(2) {
-            animation-delay: 0.12s;
-        }
-        .war-card:nth-child(3) {
-            animation-delay: 0.19s;
-        }
-        .war-card:nth-child(4) {
-            animation-delay: 0.26s;
-        }
-        .war-card:nth-child(5) {
-            animation-delay: 0.33s;
-        }
-        .war-card:nth-child(6) {
-            animation-delay: 0.40s;
-        }
+        .war-card:nth-child(1) { animation-delay: 0.05s; }
+        .war-card:nth-child(2) { animation-delay: 0.12s; }
+        .war-card:nth-child(3) { animation-delay: 0.19s; }
+        .war-card:nth-child(4) { animation-delay: 0.26s; }
+        .war-card:nth-child(5) { animation-delay: 0.33s; }
+        .war-card:nth-child(6) { animation-delay: 0.40s; }
 
         .war-card:hover {
             transform: translateY(-10px) scale(1.01);
@@ -338,6 +371,11 @@
             object-fit: cover;
             border-radius: 14px;
             margin-bottom: 4px;
+            transition: 0.5s ease;
+        }
+
+        .war-card:hover img {
+            transform: scale(1.02);
         }
 
         .war-card .caption {
@@ -351,6 +389,7 @@
         .war-card h3 {
             font-size: 22px;
             color: #1e1e1e;
+            margin-bottom: 4px;
         }
 
         .war-card .date {
@@ -373,6 +412,7 @@
             text-align: justify;
             flex-grow: 1;
             font-weight: 300;
+            line-height: 1.9;
         }
 
         /* ====== عکس شناور ====== */
@@ -380,7 +420,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 120px;
+            width: 160px;
             height: auto;
             z-index: 999;
             border-radius: 0 0 16px 0;
@@ -420,6 +460,7 @@
             margin: 0 12px;
             font-size: 14px;
             font-weight: 600;
+            transition: 0.3s ease;
         }
 
         footer a:hover {
@@ -439,199 +480,233 @@
                 flex-direction: column;
                 text-align: center;
             }
+
             nav {
                 margin-top: 12px;
             }
+
             nav a {
                 margin: 0 8px;
                 font-size: 14px;
             }
+
             .hero h2 {
                 font-size: 26px;
             }
+
+            .hero {
+                padding: 50px 20px 40px;
+            }
+
             .info-cols {
                 grid-template-columns: 1fr 1fr;
             }
+
             .war-grid {
                 grid-template-columns: 1fr;
             }
+
             .floating-kad {
-                width: 80px;
+                width: 100px;
             }
         }
 
         @media (max-width: 480px) {
             .floating-kad {
-                width: 60px;
+                width: 70px;
             }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <div class="logo">
-            <h1>ایالات متحده <span>کادریا</span></h1>
+    <!-- ====== هدر با لوگو ====== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://cdn.imgurl.ir/uploads/i40270_Picsart_25-05-30_16-57-45-704.png" alt="لوگوی کادریا" />
+                <h1>ایالات متحده <span>کادریا</span></h1>
+            </div>
+            <nav>
+                <a href="index.html">خانه</a>
+                <a href="#wars">مروری بر جنگ‌ها</a>
+                <a href="#contact">تماس</a>
+            </nav>
         </div>
-        <nav>
-            <a href="index.html">خانه</a>
-            <a href="#wars">مروری بر جنگ‌ها</a>
-            <a href="#contact">تماس</a>
-        </nav>
-    </div>
-</header>
+    </header>
 
-<main class="container">
+    <!-- ====== محتوای اصلی ====== -->
+    <main class="container">
 
-    <!-- بنر -->
-    <section class="hero">
-        <div class="hero-text">
-            <h2>به وبسایت رسمی <span>کادریا</span> خوش آمدید</h2>
-            <p>کشوری پیشرو در توسعه، فناوری و همکاری‌های بین‌المللی.</p>
-            <a href="#wars" class="btn-gold">مروری بر جنگ‌ها</a>
-        </div>
-    </section>
+        <!-- ====== بنر ====== -->
+        <section class="hero">
+            <div class="hero-text">
+                <h2>به وبسایت رسمی <span>کادریا</span> خوش آمدید</h2>
+                <p>کشوری پیشرو در توسعه، فناوری و همکاری‌های بین‌المللی.</p>
+                <a href="#wars" class="btn-gold">مروری بر جنگ‌ها</a>
+            </div>
+        </section>
 
-    <!-- درباره ما -->
-    <section id="about" class="about-box">
-        <h2 class="section-title" style="border-right: none; padding-right: 0;">دربارهٔ ایالات متحدهٔ کادریا</h2>
-        <p>
-            کادریا کشوری در <strong>کمپرسی میانه</strong> است که از شمال با <strong>حکمتستان</strong> و از جنوب با <strong>جوانستان</strong> هم‌مرز است. این کشور با تکیه بر مشارکت عمومی، شفافیت و توسعهٔ پایدار، مسیر پیشرفت خود را در عرصه‌های داخلی و بین‌المللی هموار می‌کند.
-        </p>
-        <div class="info-cols">
-            <div class="info-item">
-                <strong>۲۰۲۳</strong>
-                <span>تاریخ تأسیس</span>
-            </div>
-            <div class="info-item">
-                <strong>دموکراسی</strong>
-                <span>نظام حکومتی</span>
-            </div>
-            <div class="info-item">
-                <strong>حکمتستان (شمال)</strong>
-                <span>همسایه</span>
-            </div>
-            <div class="info-item">
-                <strong>جوانستان (جنوب)</strong>
-                <span>همسایه</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- اخبار رسمی -->
-    <section id="news">
-        <h2 class="section-title">🗞️ اخبار رسمی</h2>
-        <div class="news-card">
-            <span class="tag">سیاسی</span>
-            <h3>وبسایت رسمی ایالات متحدهٔ کادریا افتتاح شد</h3>
-            <div class="date">۱۰ آگوست ۲۰۲۶</div>
+        <!-- ====== درباره ما ====== -->
+        <section id="about" class="about-box">
+            <h2 class="section-title" style="border-right: none; padding-right: 0;">دربارهٔ ایالات متحدهٔ کادریا</h2>
             <p>
-                وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد. این وبسایت شامل بخش‌های مختلفی از جمله معرفی کشور، اخبار رسمی و تماس با نهادهای دولتی است. شهروندان می‌توانند از این پس اخبار و بیانیه‌های رسمی را از این مرجع پیگیری کنند.
+                کادریا کشوری در <strong>کمپرسی میانه</strong> است که از شمال با <strong>حکمتستان</strong> و از جنوب با <strong>جوانستان</strong> هم‌مرز است. این کشور با تکیه بر مشارکت عمومی، شفافیت و توسعهٔ پایدار، مسیر پیشرفت خود را در عرصه‌های داخلی و بین‌المللی هموار می‌کند.
             </p>
+            <div class="info-cols">
+                <div class="info-item">
+                    <strong>۲۰۲۳</strong>
+                    <span>تاریخ تأسیس</span>
+                </div>
+                <div class="info-item">
+                    <strong>دموکراسی</strong>
+                    <span>نظام حکومتی</span>
+                </div>
+                <div class="info-item">
+                    <strong>حکمتستان (شمال)</strong>
+                    <span>همسایه</span>
+                </div>
+                <div class="info-item">
+                    <strong>جوانستان (جنوب)</strong>
+                    <span>همسایه</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== اخبار رسمی ====== -->
+        <section id="news">
+            <h2 class="section-title">🗞️ اخبار رسمی</h2>
+            <div class="news-card">
+                <span class="tag">سیاسی</span>
+                <h3>وبسایت رسمی ایالات متحدهٔ کادریا افتتاح شد</h3>
+                <div class="date">۱۰ آگوست ۲۰۲۶</div>
+                <p>
+                    وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد. این وبسایت شامل بخش‌های مختلفی از جمله معرفی کشور، اخبار رسمی و تماس با نهادهای دولتی است. شهروندان می‌توانند از این پس اخبار و بیانیه‌های رسمی را از این مرجع پیگیری کنند.
+                </p>
+            </div>
+        </section>
+
+        <!-- ====== بخش جنگ‌ها با توضیحات کامل ====== -->
+        <section id="wars">
+            <h2 class="section-title">⚔️ مروری بر جنگ‌ها</h2>
+            <p style="color: #555; font-size: 18px; margin-bottom: 20px; font-weight: 300;">
+                روایتی تاریخی از نبردهایی که سرنوشت کادریا را رقم زدند.
+            </p>
+
+            <div class="war-grid">
+
+                <!-- ====== جنگ ۱: جوانستان ====== -->
+                <div class="war-card">
+                    <img src="https://cdn.imgurl.ir/uploads/y318270_IMG_20260810_204130_137.jpg" alt="جنگنده E10 جوانستانی سرنگون شده" />
+                    <div class="caption">📸 جنگنده E10 جوانستانی سرنگون شده</div>
+                    <img src="https://cdn.imgurl.ir/uploads/m87986_IMG_20260810_204819_826.jpg" alt="امضای تفاهم‌نامه موقت صلح" />
+                    <div class="caption">📸 امضای تفاهم‌نامه موقت صلح و تبادل اسرا - از راست: رئیس‌جمهور کادریا، رئیس‌جمهور جوانستان</div>
+                    <img src="https://cdn.imgurl.ir/uploads/v78854_IMG_20260810_203853_538.jpg" alt="رئیس جمهور جوانستان در دادگاه بین المللی" />
+                    <div class="caption">📸 رئیس جمهور جوانستان در دادگاه بین المللی</div>
+                    
+                    <h3>⚔️ جنگ جوانستان</h3>
+                    <div class="date">📅 ۱۵ ژانویه ۲۰۲۳ – ۱۵ ژانویه ۲۰۲۵</div>
+                    <div class="location">📍 مرزهای جنوبی کادریا</div>
+                    <p>
+                        جنگ جوانستان، اولین درگیری نظامی بزرگ در تاریخ ایالات متحده کادریا بود که در میانه دی‌ماه ۱۴۰۱ با یک حمله‌ی غافلگیرانه از سوی نیروهای جوانستان به مناطق مرزی جنوبی آغاز شد. این تجاوز آشکار، که بدون هیچ هشدار قبلی صورت گرفت، موجب به حرکت درآمدن تمامی ظرفیت‌های دفاعی کادریا شد. آنچه در ابتدا یک تهاجم کوتاه‌مدت به نظر می‌رسید، به جنگی تمام‌عیار و دو ساله تبدیل گردید که در طی آن، نبردهای سنگین و عملیات‌های گسترده‌ای در جبهه‌های جنوبی رخ داد. نیروهای مسلح کادریا با وجود غافلگیری اولیه، با اتکا به آموزش دیده‌گی، روحیه‌ی جنگاوری و پشتیبانی مردمی، توانستند موج‌های پیاپی حملات دشمن را دفع کنند. ضدحمله‌های استراتژیک و هوشمندانه‌ی کادریا، آرایش دفاعی جوانستان را در هم شکست و آنان را مجبور به عقب‌نشینی کرد. سرانجام، با میانجی‌گری سازمان‌های بین‌المللی و کاهش توان نظامی طرفین، آتش‌بسی برقرار شد که زمینه‌ساز صلحی پایدار و تبادل اسرای جنگی گردید. این جنگ، اگرچه خسارات مادی و معنوی زیادی بر جای گذاشت، اما به عنوان نقطه‌ی عطفی در شکل‌گیری هویت دفاعی و وحدت ملی کادریا در تاریخ ثبت شد.
+                    </p>
+                </div>
+
+                <!-- ====== جنگ ۲: خلیج کادر ====== -->
+                <div class="war-card">
+                    <h3>⚓ جنگ خلیج کادر</h3>
+                    <div class="date">📅 ۲۰۲۴</div>
+                    <div class="location">📍 سرزمین ایالات متحده کادریا</div>
+                    <p>
+                        جنگ خلیج کادر، یکی از کوتاه‌مدت‌ترین اما سرنوشت‌سازترین درگیری‌های نظامی در منطقه بود که در سال ۲۰۲۴ به وقوع پیوست. این جنگ، مجموعه حملات هماهنگ ارتش متفق جوانستان و قهرمانلند به خاک ایالات متحده کادریا بود که با هدف تصرف سریع سرزمین‌های حاصل‌خیز و تأسیسات استراتژیک جنوبی طراحی شده بود. متفقین با بهره‌گیری از برتری عددی و غافلگیری تاکتیکی، توانستند در نخستین روزهای تهاجم، بخش‌های وسیعی از خاک کادریا از جمله مناطق ساحلی خلیج کادر را به اشغال خود درآورند. این اشغال کامل، ضربه‌ی سنگینی به روحیه‌ی ملی و توان دفاعی کادریا وارد کرد. با این حال، نیروهای باقی‌مانده‌ی ارتش کادریا که موفق به عقب‌نشینی به سمت شمال و استقرار در کشور هم‌پیمان حکمتستان شده بودند، با حمایت همه‌جانبه‌ی آن کشور، عملیات گسترده‌ی بازپس‌گیری را با نام «سپر آتشین» طراحی و اجرا کردند. این عملیات که با هماهنگی اطلاعاتی و پشتیبانی هوایی دقیق انجام شد، توانست در کمتر از چند ماه، خطوط دفاعی متفقین را در هم بشکند و تمامی مناطق اشغالی را آزاد کند. جنگ خلیج کادر، اگرچه کوتاه بود، اما درسی ماندگار از همبستگی ملی و اهمیت اتحادهای راهبردی برای کادریا به یادگار گذاشت.
+                    </p>
+                </div>
+
+                
+                 <!-- ====== جنگ سوم: جنگ کلاسی (فرا منطقه‌ای) ====== -->
+                <div class="war-card">
+                    <img src="https://cdn.imgurl.ir/uploads/q815914_IMG_20260810_204411_038.jpg" alt="عبدالآراد شریف، الشیخ وحیدی، فرد مجهول" />
+                    <div class="caption">📸 از راست: عبدالآراد شریف، الشیخ وحیدی، فرد مجهول</div>
+                    
+                    <h3>⚔️ جنگ کلاسی</h3>
+                    <div class="date">📅 ۲۰۲۵</div>
+                    <div class="location">📍 مناطق عملیاتی فرامنطقه‌ای</div>
+                    <p>
+                        جنگ کلاسی، یک درگیری فرامنطقه‌ای و تأثیرگذار بود که در مقیاسی گسترده‌تر از مرزهای داخلی رخ داد. این جنگ با وساطت نهادهای بین‌المللی و گفت‌وگوهای گسترده، به توافقی دوطرفه انجامید و به عنوان نمادی از همکاری فرا مرزی ثبت شد. اگرچه در مقیاسی کوچک‌تر از دیگر درگیری‌ها ارزیابی می‌شود، اما از نظر تأثیر بر ساختارهای نظامی و سیاسی منطقه‌ای، بسیار پرمعنا بود و درس‌های ارزشمندی برای دیپلماسی و مدیریت بحران به همراه داشت.
+                    </p>
+                </div>
+
+                <!-- ====== جنگ چهارم: عملیات تخریب ====== -->
+                <div class="war-card">
+                    <img src="https://cdn.imgurl.ir/uploads/b214_IMG_20260810_205244_802.jpg" alt="سخنگوی تخریب در حال سخنرانی" />
+                    <div class="caption">📸 سخنگوی تخریب در حال سخنرانی</div>
+                    
+                    <h3>⚔️ عملیات تخریب</h3>
+                    <div class="date">📅 ۲۰۲۶</div>
+                    <div class="location">📍 جبهه‌های مختلف کادریا</div>
+                    <p>
+                        عملیات تخریب، یک کارزار جامع و چندبعدی بود که در سال ۲۰۲۶ با هدف اصلی مقابله با آرین مفسد، رهبر شبکه‌های سازمان‌یافته‌ی اخلالگر، طراحی و به اجرا درآمد. این عملیات که با رهبری آیت‌الله رحمان و هماهنگی نیروهای مسلح ایالات متحده کادریا، و با همراهی و حمایت اطلاعاتی و لجستیکی چندین کشور هم‌پیمان منطقه‌ای و فرامنطقه‌ای انجام شد، یک اقدام فراملی برای ریشه‌کنی فساد و ناامنی محسوب می‌شود. این کارزار ترکیبی از اقدامات اطلاعاتی، حملات جراحی و محاصره‌های اقتصادی را شامل می‌شد که در فازهای مختلف و با دقت بالایی اجرا گردید. ضربات مهلکی که بر پیکره‌ی شبکه‌های وابسته به آرین وارد شد، توان عملیاتی آنان را به صفر رساند و امنیت داخلی را به طور چشمگیری احیا نمود. سرانجام، با محاصره‌ی کامل آخرین سنگرهای مقاومت و از بین رفتن تمامی مسیرهای فرار، آرین مفسد مجبور به تسلیم شد و با این تسلیم، پایان قطعی پرونده‌ی یکی از پیچیده‌ترین تهدیدهای امنیتی منطقه رقم خورد.
+                    </p>
+                </div>
+
+                <!-- ====== جنگ پنجم: عملیات پودرش ====== -->
+                <div class="war-card">
+                    <img src="https://cdn.imgurl.ir/uploads/s337118_IMG_20260810_205346_684.jpg" alt="دونالد جی ترامپ، باربد" />
+                    <div class="caption">📸 از راست: دونالد جی ترامپ، باربد</div>
+                    
+                    <h3>⚔️ عملیات پودرش</h3>
+                    <div class="date">📅 ۲۰۲۶</div>
+                    <div class="location">📍 مناطق عملیاتی تحت امر پودرش</div>
+                    <p>
+                        عملیات پودرش، یک عملیات تاکتیکی، سریع و فوق‌العاده دقیق بود که در سال ۲۰۲۶ با هدف انهدام شبکه‌های نفوذی وابسته به باربد مفسد، یکی از چهره‌های شاخص و خطرناک در منطقه، به مرحله‌ی اجرا درآمد. باربد که با بهره‌گیری از پوشش‌های تجاری و دیپلماتیک، مدتی طولانی فعالیت‌های اخلالگرانه‌ی خود را پنهان کرده بود، به یک تهدید جدی برای امنیت چندین کشور تبدیل شده بود. در این مسیر، ایالات متحده کادریا با درک عمق تهدید، با پیوستن به گروه عملیاتی ویژه‌ی پودرش، که تحت هدایت مستقیم فرمانده‌ی باتجربه‌ و استراتژیست «ناگت» عمل می‌کرد، هماهنگی بی‌نظیری را برای ریشه‌کنی این تهدید به نمایش گذاشت. عملیات با استفاده از آخرین فناوری‌های شناسایی و با اجرای چندین حمله‌ی همزمان به مراکز کلیدی باربد، هرگونه واکنش هماهنگ از سوی شبکه‌های او را غیرممکن ساخت. این یورش کوتاه‌مدت و حساب‌شده، با سرعت و دقتی مثال‌زدنی پیش رفت و در کمتر از زمان پیش‌بینی‌شده، تمامی گره‌های عملیاتی و پشتیبانی باربد را گسست. نهایتاً، باربد که در تنگنای کامل و بدون هیچ راه فراری قرار گرفته بود، مجبور به تسلیم شد و بدین ترتیب، این عملیات با یک پیروزی قاطع و بازگشت آرامش پایدار به منطقه به پایان رسید.
+                    </p>
+                </div>
+
+                <!-- ====== جنگ ششم: عملیات کوبش ====== -->
+                <div class="war-card">
+                    <img src="https://cdn.imgurl.ir/uploads/n291472_IMG_20260810_204922_078.jpg" alt="سخنرانی گروه کوبش" />
+                    <div class="caption">📸 سخنرانی گروه کوبش</div>
+                    
+                    <h3>⚔️ عملیات کوبش</h3>
+                    <div class="date">📅 ۲۰۲۵ – اکنون</div>
+                    <div class="location">📍 جبهه‌های نبرد علیه رحمانستان</div>
+                    <p>
+                        عملیات کوبش، بدون شک بزرگ‌ترین، پیچیده‌ترین و تأثیرگذارترین کارزار نظامی منطقه در دهه‌ی اخیر است که با هدفی راهبردی و حیاتی، یعنی مقابله با رحمان مفسد و ریشه‌کنی کامل نفوذ و شبکه‌های فساد او در کشور رحمانستان، آغاز گردید. رحمان مفسد که سال‌ها با استفاده از منابع مالی عظیم و روابط فراملی، امنیت و ثبات چندین کشور را تحت تأثیر منفی خود قرار داده بود، به عنوان یک تهدید وجودی برای نظم منطقه‌ای شناخته می‌شد. عملیات کوبش با همکاری و اتحاد بی‌سابقه‌ی تیم قدرتمند کوبش و با پیوستن همه‌جانبه‌ی ایالات متحده کادریا به این ائتلاف عظیم، کلید خورد. حملات سنگین، همه‌جانبه و مداوم که از سال ۲۰۲۵ تاکنون علیه پایگاه‌ها، خطوط تدارکاتی و مراکز تصمیم‌گیری رحمان ادامه دارد، ضربات مهلک و جبران‌ناپذیری بر پیکره‌ی شبکه‌های گسترده‌ی فساد وابسته به او وارد کرده است. اگرچه این جنگ سخت و پیچیده تا به امروز به پایان نرسیده و همچنان ادامه دارد، اما اراده‌ی پولادین رزمندگان، همبستگی مثال‌زدنی نیروهای بین‌المللی و پیشرفت‌های چشمگیر میدانی، چشم‌اندازی روشن و امیدوارکننده را برای پیروزی قاطع و نهایی بر این تهدید بزرگ ترسیم می‌کند. افکار عمومی منطقه، این عملیات را نماد عزم راسخ برای مبارزه با فساد و برقراری عدالت می‌دانند.
+                    </p>
+                </div>
+
+            </div> <!-- بسته شدن war-grid -->
+        </section> <!-- بسته شدن بخش wars -->
+
+        <!-- ====== تماس با ما ====== -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title" style="border-right: none; padding-right: 0; text-align: center;">📢 ما را دنبال کنید</h2>
+            <p style="text-align: center; font-size: 18px;">
+                <strong>کانال رسمی تلگرام:</strong><br />
+                <a href="https://t.me/USKOFFI" target="_blank">t.me/USKOFFI</a>
+            </p>
+        </section>
+
+    </main> <!-- بسته شدن main -->
+
+    <!-- ====== عکس شناور ====== -->
+    <img src="https://cdn.imgurl.ir/uploads/v907064_InShot_20260811_133247413.png" 
+         alt="USK" 
+         class="floating-kad" />
+
+    <!-- ====== فوتر ====== -->
+    <footer>
+        <div class="container">
+            <div>
+                <a href="index.html">خانه</a>
+                <a href="#wars">مروری بر جنگ‌ها</a>
+                <a href="#contact">تماس</a>
+            </div>
+            <div class="copy">
+                © ۲۰۲۶ تمامی حقوق برای ایالات متحدهٔ کادریا محفوظ است.
+            </div>
         </div>
-    </section>
-
-    <!-- ====== بخش جنگ‌ها ====== -->
-    <section id="wars">
-        <h2 class="section-title">⚔️ مروری بر جنگ‌ها</h2>
-        <p style="color: #555; font-size: 18px; margin-bottom: 20px; font-weight: 300;">
-            روایتی تاریخی از نبردهایی که سرنوشت کادریا را رقم زدند.
-        </p>
-
-        <div class="war-grid">
-
-            <!-- جنگ ۱: جوانستان -->
-            <div class="war-card">
-                <img src="https://cdn.imgurl.ir/uploads/y318270_IMG_20260810_204130_137.jpg" alt="جنگنده E10" />
-                <div class="caption">📸 جنگنده E10 جوانستانی سرنگون شده</div>
-                <img src="https://cdn.imgurl.ir/uploads/m87986_IMG_20260810_204819_826.jpg" alt="امضای تفاهم‌نامه" />
-                <div class="caption">📸 امضای تفاهم‌نامه موقت صلح - از راست: رئیس‌جمهور کادریا، رئیس‌جمهور جوانستان</div>
-                <img src="https://cdn.imgurl.ir/uploads/v78854_IMG_20260810_203853_538.jpg" alt="دادگاه" />
-                <div class="caption">📸 رئیس جمهور جوانستان در دادگاه بین المللی</div>
-                <h3>⚔️ جنگ جوانستان</h3>
-                <div class="date">📅 ۱۵ ژانویه ۲۰۲۳ – ۱۵ ژانویه ۲۰۲۵</div>
-                <div class="location">📍 مرزهای جنوبی کادریا</div>
-                <p>جنگ جوانستان، اولین درگیری نظامی بزرگ کادریا بود که با حمله غافلگیرانه جوانستان آغاز شد. این جنگ دو ساله با عملیات‌های سنگین و در نهایت با میانجی‌گری سازمان‌های بین‌المللی به آتش‌بس انجامید و نقطه‌عطفی در هویت دفاعی کادریا شد.</p>
-            </div>
-
-            <!-- جنگ ۲: خلیج کادر -->
-            <div class="war-card">
-                <h3>⚓ جنگ خلیج کادر</h3>
-                <div class="date">📅 ۲۰۲۴</div>
-                <div class="location">📍 سرزمین ایالات متحده کادریا</div>
-                <p>جنگ خلیج کادر، مجموعه حملات هماهنگ جوانستان و قهرمانلند به خاک کادریا بود که با اشغال کامل آغاز شد. اما نیروهای باقی‌مانده با حمایت حکمتستان، عملیات «سپر آتشین» را اجرا و تمام مناطق اشغالی را آزاد کردند.</p>
-            </div>
-
-            <!-- جنگ ۳: کلاسی (بازنویسی شده به‌عنوان فرا منطقه‌ای) -->
-            <div class="war-card">
-                <img src="https://cdn.imgurl.ir/uploads/q815914_IMG_20260810_204411_038.jpg" alt="کلاسی" />
-                <div class="caption">📸 از راست: عبدالآراد شریف، الشیخ وحیدی، فرد مجهول</div>
-                <h3>⚔️ جنگ کلاسی</h3>
-                <div class="date">📅 ۲۰۲۵</div>
-                <div class="location">📍 مناطق عملیاتی فرامنطقه‌ای</div>
-                <p>جنگ کلاسی، یک درگیری فرامنطقه‌ای و تأثیرگذار بود که در مقیاسی گسترده‌تر از مرزهای داخلی رخ داد. این جنگ با وساطت نهادهای بین‌المللی و گفت‌وگوهای گسترده، به توافقی دوطرفه انجامید و به عنوان نمادی از همکاری فرا مرزی ثبت شد.</p>
-            </div>
-
-            <!-- جنگ ۴: تخریب -->
-            <div class="war-card">
-                <img src="https://cdn.imgurl.ir/uploads/b214_IMG_20260810_205244_802.jpg" alt="تخریب" />
-                <div class="caption">📸 سخنگوی تخریب در حال سخنرانی</div>
-                <h3>⚔️ عملیات تخریب</h3>
-                <div class="date">📅 ۲۰۲۶</div>
-                <div class="location">📍 جبهه‌های مختلف کادریا</div>
-                <p>عملیات تخریب، یک کارزار جامع علیه آرین مفسد با رهبری آیت‌الله رحمان و همراهی کشورهای هم‌پیمان بود که با تسلیم آرین پایان یافت و امنیت داخلی را احیا کرد.</p>
-            </div>
-
-            <!-- جنگ ۵: پودرش -->
-            <div class="war-card">
-                <img src="https://cdn.imgurl.ir/uploads/s337118_IMG_20260810_205346_684.jpg" alt="پودرش" />
-                <div class="caption">📸 از راست: دونالد جی ترامپ، باربد</div>
-                <h3>⚔️ عملیات پودرش</h3>
-                <div class="date">📅 ۲۰۲۶</div>
-                <div class="location">📍 مناطق عملیاتی تحت امر پودرش</div>
-                <p>عملیات پودرش، یک عملیات سریع و دقیق با هدف انهدام شبکه‌های باربد مفسد بود که با همکاری گروه پودرش و هدایت ناگت، با تسلیم باربد پایان یافت.</p>
-            </div>
-
-            <!-- جنگ ۶: کوبش -->
-            <div class="war-card">
-                <img src="https://cdn.imgurl.ir/uploads/n291472_IMG_20260810_204922_078.jpg" alt="کوبش" />
-                <div class="caption">📸 سخنرانی گروه کوبش</div>
-                <h3>⚔️ عملیات کوبش</h3>
-                <div class="date">📅 ۲۰۲۵ – اکنون</div>
-                <div class="location">📍 جبهه‌های نبرد علیه رحمانستان</div>
-                <p>عملیات کوبش، بزرگ‌ترین کارزار علیه رحمان مفسد با ائتلاف کوبش و کادریا است. این جنگ هنوز ادامه دارد و با وجود سختی‌ها، چشم‌انداز پیروزی روشن است.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- تماس -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title" style="border-right: none; padding-right: 0; text-align: center;">📢 ما را دنبال کنید</h2>
-        <p style="text-align: center; font-size: 18px;">
-            <strong>کانال رسمی تلگرام:</strong><br />
-            <a href="https://t.me/USKOFFI" target="_blank">t.me/USKOFFI</a>
-        </p>
-    </section>
-
-</main>
-
-<!-- عکس شناور -->
-<img src="https://cdn.imgurl.ir/uploads/v907064_InShot_20260811_133247413.png" alt="USK" class="floating-kad" />
-
-<footer>
-    <div class="container">
-        <div>
-            <a href="index.html">خانه</a>
-            <a href="#wars">مروری بر جنگ‌ها</a>
-            <a href="#contact">تماس</a>
-        </div>
-        <div class="copy">
-            © ۲۰۲۶ تمامی حقوق برای ایالات متحدهٔ کادریا محفوظ است.
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
 </html>
