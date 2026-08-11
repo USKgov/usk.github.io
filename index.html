@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ایالات متحده کادریا | وبسایت رسمی</title>
+    
+    <!-- ====== فونت وزیر ====== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -11,12 +17,30 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
             background: #fcf9f2;
             color: #1e1e1e;
-            line-height: 1.8;
+            line-height: 1.9;
             direction: rtl;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5f0e6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b8962e;
         }
 
         .container {
@@ -26,12 +50,13 @@
             padding: 15px 0;
         }
 
-        /* ========== هدر ========== */
+        /* ====== هدر ====== */
         header {
-            background: #ffffff;
-            border-bottom: 4px solid #d4af37;
-            padding: 12px 0;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 3px solid #d4af37;
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -44,22 +69,11 @@
             flex-wrap: wrap;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo img {
-            height: 45px;
-            width: auto;
-            display: block;
-        }
-
         .logo h1 {
             font-size: 28px;
             font-weight: 900;
             color: #1e1e1e;
+            letter-spacing: 1px;
         }
 
         .logo h1 span {
@@ -72,29 +86,58 @@
             margin: 0 14px;
             font-weight: 600;
             font-size: 16px;
-            transition: 0.3s;
+            transition: 0.3s ease;
             padding-bottom: 4px;
             border-bottom: 2px solid transparent;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: 0.3s ease;
         }
 
         nav a:hover {
             color: #d4af37;
-            border-bottom-color: #d4af37;
         }
 
-        /* ========== بنر اصلی ========== */
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ====== بنر ====== */
         .hero {
-            background: #faf6ed;
+            background: linear-gradient(145deg, #faf6ed, #f3ecdb);
             border: 1px solid #e8dcc8;
-            border-radius: 18px;
-            padding: 60px 30px;
+            border-radius: 24px;
+            padding: 70px 30px 60px;
             margin: 35px 0 30px;
             text-align: center;
-            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.08);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.08);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h2 {
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 900;
             color: #1e1e1e;
         }
@@ -107,44 +150,64 @@
             font-size: 18px;
             color: #3a3a3a;
             max-width: 700px;
-            margin: 12px auto 18px;
+            margin: 12px auto 22px;
+            font-weight: 300;
         }
 
         .btn-gold {
             display: inline-block;
-            background: #d4af37;
+            background: linear-gradient(135deg, #d4af37, #c09c2b);
             color: #fff;
-            padding: 12px 38px;
-            border-radius: 40px;
+            padding: 14px 42px;
+            border-radius: 50px;
             font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
-            border: none;
             font-size: 16px;
+            text-decoration: none;
+            transition: 0.4s ease;
+            border: none;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: rotate(45deg);
+            transition: 0.6s ease;
         }
 
         .btn-gold:hover {
-            background: #c09c2b;
-            transform: scale(1.02);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35);
         }
 
-        /* ========== بخش‌های دیگر ========== */
+        .btn-gold:hover::after {
+            left: 100%;
+        }
+
+        /* ====== بخش‌ها ====== */
         .section-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin: 45px 0 22px;
+            font-size: 30px;
+            font-weight: 900;
+            margin: 50px 0 22px;
             border-right: 7px solid #d4af37;
-            padding-right: 18px;
+            padding-right: 20px;
             color: #1e1e1e;
         }
 
         .about-box,
         .contact-section {
             background: #ffffff;
-            padding: 32px 30px;
-            border-radius: 18px;
+            padding: 35px 32px;
+            border-radius: 20px;
             margin: 30px 0;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
             border-right: 6px solid #d4af37;
         }
 
@@ -152,6 +215,7 @@
             color: #2c3e50;
             font-size: 16px;
             margin-top: 8px;
+            font-weight: 300;
         }
 
         .info-cols {
@@ -164,7 +228,7 @@
         .info-item {
             background: #f5f0e6;
             padding: 14px 12px;
-            border-radius: 12px;
+            border-radius: 14px;
             text-align: center;
             border: 1px solid #e8dcc8;
         }
@@ -178,13 +242,14 @@
         .info-item span {
             font-size: 14px;
             color: #555;
+            font-weight: 300;
         }
 
         .news-card {
             background: #ffffff;
-            border-radius: 16px;
-            padding: 22px 20px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border-radius: 18px;
+            padding: 24px 22px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             border-top: 5px solid #d4af37;
             margin-top: 15px;
         }
@@ -194,8 +259,8 @@
             background: #d4af37;
             color: #fff;
             font-size: 11px;
-            font-weight: 800;
-            padding: 2px 14px;
+            font-weight: 700;
+            padding: 2px 16px;
             border-radius: 30px;
             margin-bottom: 8px;
         }
@@ -208,6 +273,7 @@
         .news-card .date {
             color: #888;
             font-size: 13px;
+            font-weight: 300;
         }
 
         .contact-section p {
@@ -221,11 +287,7 @@
             text-decoration: none;
         }
 
-        .contact-section a:hover {
-            text-decoration: underline;
-        }
-
-        /* ========== بخش جنگ‌ها (حالت کارتی) ========== */
+        /* ====== کارت‌های جنگ ====== */
         .war-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -235,25 +297,46 @@
 
         .war-card {
             background: #ffffff;
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 22px 20px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             border-top: 6px solid #d4af37;
-            transition: 0.3s;
+            transition: 0.4s ease;
             display: flex;
             flex-direction: column;
+            animation: fadeInUp 0.7s ease forwards;
+            opacity: 0;
+        }
+
+        .war-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .war-card:nth-child(2) {
+            animation-delay: 0.12s;
+        }
+        .war-card:nth-child(3) {
+            animation-delay: 0.19s;
+        }
+        .war-card:nth-child(4) {
+            animation-delay: 0.26s;
+        }
+        .war-card:nth-child(5) {
+            animation-delay: 0.33s;
+        }
+        .war-card:nth-child(6) {
+            animation-delay: 0.40s;
         }
 
         .war-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 16px 48px rgba(212, 175, 55, 0.12);
         }
 
         .war-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 14px;
             margin-bottom: 4px;
         }
 
@@ -262,18 +345,19 @@
             color: #888;
             text-align: center;
             margin-bottom: 12px;
+            font-weight: 300;
         }
 
         .war-card h3 {
             font-size: 22px;
             color: #1e1e1e;
-            margin-bottom: 4px;
         }
 
         .war-card .date {
             color: #888;
             font-size: 14px;
             margin-bottom: 6px;
+            font-weight: 300;
         }
 
         .war-card .location {
@@ -288,9 +372,40 @@
             font-size: 15px;
             text-align: justify;
             flex-grow: 1;
+            font-weight: 300;
         }
 
-        /* ========== فوتر ========== */
+        /* ====== عکس شناور ====== */
+        .floating-kad {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: auto;
+            z-index: 999;
+            border-radius: 0 0 16px 0;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            opacity: 0.92;
+            transition: 0.4s ease;
+            animation: floatGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes floatGlow {
+            0%,
+            100% {
+                filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.2));
+            }
+            50% {
+                filter: drop-shadow(0 4px 24px rgba(212, 175, 55, 0.4));
+            }
+        }
+
+        .floating-kad:hover {
+            transform: scale(1.04);
+            opacity: 1;
+        }
+
+        /* ====== فوتر ====== */
         footer {
             background: #ffffff;
             border-top: 4px solid #d4af37;
@@ -315,15 +430,12 @@
             margin-top: 12px;
             color: #777;
             font-size: 14px;
+            font-weight: 300;
         }
 
-        /* ========== ریسپانسیو ========== */
+        /* ====== ریسپانسیو ====== */
         @media (max-width: 750px) {
             header .container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .logo {
                 flex-direction: column;
                 text-align: center;
             }
@@ -343,32 +455,37 @@
             .war-grid {
                 grid-template-columns: 1fr;
             }
+            .floating-kad {
+                width: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-kad {
+                width: 60px;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- ====== هدر ====== -->
 <header>
     <div class="container">
         <div class="logo">
-            <img src="https://cdn.imgurl.ir/uploads/i40270_Picsart_25-05-30_16-57-45-704.png" alt="لوگوی کادریا" />
             <h1>ایالات متحده <span>کادریا</span></h1>
         </div>
         <nav>
-            <a href="#home">خانه</a>
-            <a href="#about">درباره</a>
-            <a href="#wars">جنگ‌ها</a>
+            <a href="index.html">خانه</a>
+            <a href="#wars">مروری بر جنگ‌ها</a>
             <a href="#contact">تماس</a>
         </nav>
     </div>
 </header>
 
-<!-- ====== محتوای اصلی ====== -->
 <main class="container">
 
-    <!-- ====== بخش خانه (بنر) ====== -->
-    <section id="home" class="hero">
+    <!-- بنر -->
+    <section class="hero">
         <div class="hero-text">
             <h2>به وبسایت رسمی <span>کادریا</span> خوش آمدید</h2>
             <p>کشوری پیشرو در توسعه، فناوری و همکاری‌های بین‌المللی.</p>
@@ -376,9 +493,9 @@
         </div>
     </section>
 
-    <!-- ====== درباره ما ====== -->
+    <!-- درباره ما -->
     <section id="about" class="about-box">
-        <h2 class="section-title" style="border-right: none; padding-right: 0;"> دربارهٔ ایالات متحدهٔ کادریا</h2>
+        <h2 class="section-title" style="border-right: none; padding-right: 0;">دربارهٔ ایالات متحدهٔ کادریا</h2>
         <p>
             کادریا کشوری در <strong>کمپرسی میانه</strong> است که از شمال با <strong>حکمتستان</strong> و از جنوب با <strong>جوانستان</strong> هم‌مرز است. این کشور با تکیه بر مشارکت عمومی، شفافیت و توسعهٔ پایدار، مسیر پیشرفت خود را در عرصه‌های داخلی و بین‌المللی هموار می‌کند.
         </p>
@@ -402,12 +519,12 @@
         </div>
     </section>
 
-    <!-- ====== اخبار رسمی ====== -->
+    <!-- اخبار رسمی -->
     <section id="news">
         <h2 class="section-title">🗞️ اخبار رسمی</h2>
         <div class="news-card">
             <span class="tag">سیاسی</span>
-            <h3> وبسایت رسمی ایالات متحدهٔ کادریا افتتاح شد</h3>
+            <h3>وبسایت رسمی ایالات متحدهٔ کادریا افتتاح شد</h3>
             <div class="date">۱۰ آگوست ۲۰۲۶</div>
             <p>
                 وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد. این وبسایت شامل بخش‌های مختلفی از جمله معرفی کشور، اخبار رسمی و تماس با نهادهای دولتی است. شهروندان می‌توانند از این پس اخبار و بیانیه‌های رسمی را از این مرجع پیگیری کنند.
@@ -418,94 +535,90 @@
     <!-- ====== بخش جنگ‌ها ====== -->
     <section id="wars">
         <h2 class="section-title">⚔️ مروری بر جنگ‌ها</h2>
-        <p class="subtitle" style="color: #555; font-size: 18px; margin-bottom: 20px;">روایتی تاریخی از نبردهایی که سرنوشت کادریا را رقم زدند.</p>
+        <p style="color: #555; font-size: 18px; margin-bottom: 20px; font-weight: 300;">
+            روایتی تاریخی از نبردهایی که سرنوشت کادریا را رقم زدند.
+        </p>
 
         <div class="war-grid">
 
-            <!-- جنگ اول: جنگ جوانستان -->
+            <!-- جنگ ۱: جوانستان -->
             <div class="war-card">
-                <img src="https://cdn.imgurl.ir/uploads/y318270_IMG_20260810_204130_137.jpg" alt="جنگنده E10 جوانستانی سرنگون شده" />
+                <img src="https://cdn.imgurl.ir/uploads/y318270_IMG_20260810_204130_137.jpg" alt="جنگنده E10" />
                 <div class="caption">📸 جنگنده E10 جوانستانی سرنگون شده</div>
-                <img src="https://cdn.imgurl.ir/uploads/m87986_IMG_20260810_204819_826.jpg" alt="امضای تفاهم‌نامه موقت صلح" />
-                <div class="caption">📸 امضای تفاهم‌نامه موقت صلح و تبادل اسرا - از راست: رئیس‌جمهور کادریا، رئیس‌جمهور جوانستان</div>
-                <img src="https://cdn.imgurl.ir/uploads/v78854_IMG_20260810_203853_538.jpg" alt="رئیس جمهور جوانستان در دادگاه بین المللی" />
+                <img src="https://cdn.imgurl.ir/uploads/m87986_IMG_20260810_204819_826.jpg" alt="امضای تفاهم‌نامه" />
+                <div class="caption">📸 امضای تفاهم‌نامه موقت صلح - از راست: رئیس‌جمهور کادریا، رئیس‌جمهور جوانستان</div>
+                <img src="https://cdn.imgurl.ir/uploads/v78854_IMG_20260810_203853_538.jpg" alt="دادگاه" />
                 <div class="caption">📸 رئیس جمهور جوانستان در دادگاه بین المللی</div>
-                
                 <h3>⚔️ جنگ جوانستان</h3>
                 <div class="date">📅 ۱۵ ژانویه ۲۰۲۳ – ۱۵ ژانویه ۲۰۲۵</div>
                 <div class="location">📍 مرزهای جنوبی کادریا</div>
-                <p>
-                    جنگ جوانستان، اولین درگیری نظامی بزرگ در تاریخ ایالات متحده کادریا بود که در میانه دی‌ماه ۱۴۰۱ با یک حمله‌ی غافلگیرانه از سوی نیروهای جوانستان به مناطق مرزی جنوبی آغاز شد. این تجاوز آشکار، که بدون هیچ هشدار قبلی صورت گرفت، موجب به حرکت درآمدن تمامی ظرفیت‌های دفاعی کادریا شد. آنچه در ابتدا یک تهاجم کوتاه‌مدت به نظر می‌رسید، به جنگی تمام‌عیار و دو ساله تبدیل گردید که در طی آن، نبردهای سنگین و عملیات‌های گسترده‌ای در جبهه‌های جنوبی رخ داد. نیروهای مسلح کادریا با وجود غافلگیری اولیه، با اتکا به آموزش دیده‌گی، روحیه‌ی جنگاوری و پشتیبانی مردمی، توانستند موج‌های پیاپی حملات دشمن را دفع کنند. ضدحمله‌های استراتژیک و هوشمندانه‌ی کادریا، آرایش دفاعی جوانستان را در هم شکست و آنان را مجبور به عقب‌نشینی کرد. سرانجام، با میانجی‌گری سازمان‌های بین‌المللی و کاهش توان نظامی طرفین، آتش‌بسی برقرار شد که زمینه‌ساز صلحی پایدار و تبادل اسرای جنگی گردید. این جنگ، اگرچه خسارات مادی و معنوی زیادی بر جای گذاشت، اما به عنوان نقطه‌ی عطفی در شکل‌گیری هویت دفاعی و وحدت ملی کادریا در تاریخ ثبت شد.
-                </p>
+                <p>جنگ جوانستان، اولین درگیری نظامی بزرگ کادریا بود که با حمله غافلگیرانه جوانستان آغاز شد. این جنگ دو ساله با عملیات‌های سنگین و در نهایت با میانجی‌گری سازمان‌های بین‌المللی به آتش‌بس انجامید و نقطه‌عطفی در هویت دفاعی کادریا شد.</p>
             </div>
 
-            <!-- جنگ دوم: جنگ خلیج کادر -->
+            <!-- جنگ ۲: خلیج کادر -->
             <div class="war-card">
                 <h3>⚓ جنگ خلیج کادر</h3>
                 <div class="date">📅 ۲۰۲۴</div>
                 <div class="location">📍 سرزمین ایالات متحده کادریا</div>
-                <p>
-                    جنگ خلیج کادر، یکی از کوتاه‌مدت‌ترین اما سرنوشت‌سازترین درگیری‌های نظامی در منطقه بود که در سال ۲۰۲۴ به وقوع پیوست. این جنگ، مجموعه حملات هماهنگ ارتش متفق جوانستان و قهرمانلند به خاک ایالات متحده کادریا بود که با هدف تصرف سریع سرزمین‌های حاصل‌خیز و تأسیسات استراتژیک جنوبی طراحی شده بود. متفقین با بهره‌گیری از برتری عددی و غافلگیری تاکتیکی، توانستند در نخستین روزهای تهاجم، بخش‌های وسیعی از خاک کادریا از جمله مناطق ساحلی خلیج کادر را به اشغال خود درآورند. این اشغال کامل، ضربه‌ی سنگینی به روحیه‌ی ملی و توان دفاعی کادریا وارد کرد. با این حال، نیروهای باقی‌مانده‌ی ارتش کادریا که موفق به عقب‌نشینی به سمت شمال و استقرار در کشور هم‌پیمان حکمتستان شده بودند، با حمایت همه‌جانبه‌ی آن کشور، عملیات گسترده‌ی بازپس‌گیری را با نام «سپر آتشین» طراحی و اجرا کردند. این عملیات که با هماهنگی اطلاعاتی و پشتیبانی هوایی دقیق انجام شد، توانست در کمتر از چند ماه، خطوط دفاعی متفقین را در هم بشکند و تمامی مناطق اشغالی را آزاد کند. جنگ خلیج کادر، اگرچه کوتاه بود، اما درسی ماندگار از همبستگی ملی و اهمیت اتحادهای راهبردی برای کادریا به یادگار گذاشت.
-                </p>
+                <p>جنگ خلیج کادر، مجموعه حملات هماهنگ جوانستان و قهرمانلند به خاک کادریا بود که با اشغال کامل آغاز شد. اما نیروهای باقی‌مانده با حمایت حکمتستان، عملیات «سپر آتشین» را اجرا و تمام مناطق اشغالی را آزاد کردند.</p>
             </div>
 
-                    <!-- جنگ سوم: جنگ کلاسی -->
-        <div class="war-card">
-            <img src="https://cdn.imgurl.ir/uploads/q815914_IMG_20260810_204411_038.jpg" alt="عبدالآراد شریف، الشیخ وحیدی، فرد مجهول" />
-            <div class="caption">📸 از راست: عبدالآراد شریف، الشیخ وحیدی، فرد مجهول</div>
-            
-            <h3>⚔️ جنگ کلاسی</h3>
-            <div class="date">📅 ۲۰۲۵</div>
-            <div class="location">📍 مناطق مرزی داخلی کادریا</div>
-            <p>
-                جنگ کلاسی، اگرچه در مقیاسی کوچک‌تر از دیگر درگیری‌ها رخ داد، اما از نظر تأثیر بر ساختارهای نظامی و سیاسی خارجی‌ و داخلی، بسیار پرمعنا و تأثیرگذار بود. این جنگ کوتاه‌مدت، بر اثر تنش‌های عمیق و ریشه‌دار میان دو گروه نظامی-سیاسی ۹۰۱ (جیش الوحیدی) و ۹۰۲ شکل گرفت که هر دو از ستون‌های اصلی تأمین امنیت جهانی محسوب می‌شدند. اختلافات بر سر نحوه‌ی توزیع منابع، حوزه‌های نفوذ و تفاسیر متفاوت از آیین‌نامه‌های عملیاتی، به تدریج فضای همکاری را به رویارویی کشاند. این کشمکش جهانی که در اوایل سال ۲۰۲۵ به اوج خود رسید، می‌توانست به یک بحران تمام‌عیار امنیتی منجر شود. اما خردورزی فرماندهان ارشد و مداخله‌ی به‌موقع و غیرمحسوس میانجی‌گران با نفوذ، راه را برای مذاکره و گفتگو هموار ساخت. پس از چند دور نشست فشرده و تبادل امتیازات، سرانجام دو طرف با درک هزینه‌های سنگین تداوم درگیری، بر سر یک توافق دوطرفه به اجماع رسیدند که ضمن تأمین منافع مشروع هر دو گروه، بر ضرورت حفظ وحدت و یکپارچگی نیروهای مسلح در برابر تهدیدات واقعی تأکید داشت. این صلح شکننده اما ارزشمند، بار دیگر نشان داد که گفتگو، هرچند دشوار، همواره بر خشونت برتری دارد.
-            </p>
+            <!-- جنگ ۳: کلاسی (بازنویسی شده به‌عنوان فرا منطقه‌ای) -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/q815914_IMG_20260810_204411_038.jpg" alt="کلاسی" />
+                <div class="caption">📸 از راست: عبدالآراد شریف، الشیخ وحیدی، فرد مجهول</div>
+                <h3>⚔️ جنگ کلاسی</h3>
+                <div class="date">📅 ۲۰۲۵</div>
+                <div class="location">📍 مناطق عملیاتی فرامنطقه‌ای</div>
+                <p>جنگ کلاسی، یک درگیری فرامنطقه‌ای و تأثیرگذار بود که در مقیاسی گسترده‌تر از مرزهای داخلی رخ داد. این جنگ با وساطت نهادهای بین‌المللی و گفت‌وگوهای گسترده، به توافقی دوطرفه انجامید و به عنوان نمادی از همکاری فرا مرزی ثبت شد.</p>
+            </div>
+
+            <!-- جنگ ۴: تخریب -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/b214_IMG_20260810_205244_802.jpg" alt="تخریب" />
+                <div class="caption">📸 سخنگوی تخریب در حال سخنرانی</div>
+                <h3>⚔️ عملیات تخریب</h3>
+                <div class="date">📅 ۲۰۲۶</div>
+                <div class="location">📍 جبهه‌های مختلف کادریا</div>
+                <p>عملیات تخریب، یک کارزار جامع علیه آرین مفسد با رهبری آیت‌الله رحمان و همراهی کشورهای هم‌پیمان بود که با تسلیم آرین پایان یافت و امنیت داخلی را احیا کرد.</p>
+            </div>
+
+            <!-- جنگ ۵: پودرش -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/s337118_IMG_20260810_205346_684.jpg" alt="پودرش" />
+                <div class="caption">📸 از راست: دونالد جی ترامپ، باربد</div>
+                <h3>⚔️ عملیات پودرش</h3>
+                <div class="date">📅 ۲۰۲۶</div>
+                <div class="location">📍 مناطق عملیاتی تحت امر پودرش</div>
+                <p>عملیات پودرش، یک عملیات سریع و دقیق با هدف انهدام شبکه‌های باربد مفسد بود که با همکاری گروه پودرش و هدایت ناگت، با تسلیم باربد پایان یافت.</p>
+            </div>
+
+            <!-- جنگ ۶: کوبش -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/n291472_IMG_20260810_204922_078.jpg" alt="کوبش" />
+                <div class="caption">📸 سخنرانی گروه کوبش</div>
+                <h3>⚔️ عملیات کوبش</h3>
+                <div class="date">📅 ۲۰۲۵ – اکنون</div>
+                <div class="location">📍 جبهه‌های نبرد علیه رحمانستان</div>
+                <p>عملیات کوبش، بزرگ‌ترین کارزار علیه رحمان مفسد با ائتلاف کوبش و کادریا است. این جنگ هنوز ادامه دارد و با وجود سختی‌ها، چشم‌انداز پیروزی روشن است.</p>
+            </div>
+
         </div>
+    </section>
 
-        <!-- جنگ چهارم: عملیات تخریب -->
-        <div class="war-card">
-            <img src="https://cdn.imgurl.ir/uploads/b214_IMG_20260810_205244_802.jpg" alt="سخنگوی تخریب در حال سخنرانی" />
-            <div class="caption">📸 سخنگوی تخریب در حال سخنرانی</div>
-            
-            <h3>⚔️ عملیات تخریب</h3>
-            <div class="date">📅 ۲۰۲۶</div>
-            <div class="location">📍 جبهه‌های مختلف کادریا</div>
-            <p>
-                عملیات تخریب، یک کارزار جامع و چندبعدی بود که در سال ۲۰۲۶ با هدف اصلی مقابله با آرین مفسد، رهبر شبکه‌های سازمان‌یافته‌ی اخلالگر، طراحی و به اجرا درآمد. این عملیات که با رهبری آیت‌الله رحمان و هماهنگی نیروهای مسلح ایالات متحده کادریا، و با همراهی و حمایت اطلاعاتی و لجستیکی چندین کشور هم‌پیمان منطقه‌ای و فرامنطقه‌ای انجام شد، یک اقدام فراملی برای ریشه‌کنی فساد و ناامنی محسوب می‌شود. این کارزار ترکیبی از اقدامات اطلاعاتی، حملات جراحی و محاصره‌های اقتصادی را شامل می‌شد که در فازهای مختلف و با دقت بالایی اجرا گردید. ضربات مهلکی که بر پیکره‌ی شبکه‌های وابسته به آرین وارد شد، توان عملیاتی آنان را به صفر رساند و امنیت داخلی را به طور چشمگیری احیا نمود. سرانجام، با محاصره‌ی کامل آخرین سنگرهای مقاومت و از بین رفتن تمامی مسیرهای فرار، آرین مفسد مجبور به تسلیم شد و با این تسلیم، پایان قطعی پرونده‌ی یکی از پیچیده‌ترین تهدیدهای امنیتی منطقه رقم خورد.
-            </p>
-        </div>
-
-        <!-- جنگ پنجم: عملیات پودرش -->
-        <div class="war-card">
-            <img src="https://cdn.imgurl.ir/uploads/s337118_IMG_20260810_205346_684.jpg" alt="دونالد جی ترامپ، باربد" />
-            <div class="caption">📸 از راست: دونالد جی ترامپ، باربد</div>
-            
-            <h3>⚔️ عملیات پودرش</h3>
-            <div class="date">📅 ۲۰۲۶</div>
-            <div class="location">📍 مناطق عملیاتی تحت امر پودرش</div>
-            <p>
-                عملیات پودرش، یک عملیات تاکتیکی، سریع و فوق‌العاده دقیق بود که در سال ۲۰۲۶ با هدف انهدام شبکه‌های نفوذی وابسته به باربد مفسد، یکی از چهره‌های شاخص و خطرناک در منطقه، به مرحله‌ی اجرا درآمد. باربد که با بهره‌گیری از پوشش‌های تجاری و دیپلماتیک، مدتی طولانی فعالیت‌های اخلالگرانه‌ی خود را پنهان کرده بود، به یک تهدید جدی برای امنیت چندین کشور تبدیل شده بود. در این مسیر، ایالات متحده کادریا با درک عمق تهدید، با پیوستن به گروه عملیاتی ویژه‌ی پودرش، که تحت هدایت مستقیم فرمانده‌ی باتجربه‌ و استراتژیست «ناگت» عمل می‌کرد، هماهنگی بی‌نظیری را برای ریشه‌کنی این تهدید به نمایش گذاشت. عملیات با استفاده از آخرین فناوری‌های شناسایی و با اجرای چندین حمله‌ی همزمان به مراکز کلیدی باربد، هرگونه واکنش هماهنگ از سوی شبکه‌های او را غیرممکن ساخت. این یورش کوتاه‌مدت و حساب‌شده، با سرعت و دقتی مثال‌زدنی پیش رفت و در کمتر از زمان پیش‌بینی‌شده، تمامی گره‌های عملیاتی و پشتیبانی باربد را گسست. نهایتاً، باربد که در تنگنای کامل و بدون هیچ راه فراری قرار گرفته بود، مجبور به تسلیم شد و بدین ترتیب، این عملیات با یک پیروزی قاطع و بازگشت آرامش پایدار به منطقه به پایان رسید.
-            </p>
-        </div>
-
-        <!-- جنگ ششم: عملیات کوبش -->
-        <div class="war-card">
-            <img src="https://cdn.imgurl.ir/uploads/n291472_IMG_20260810_204922_078.jpg" alt="سخنرانی گروه کوبش" />
-            <div class="caption">📸 سخنرانی گروه کوبش</div>
-            
-            <h3>⚔️ عملیات کوبش</h3>
-            <div class="date">📅 ۲۰۲۵ – اکنون</div>
-            <div class="location">📍 جبهه‌های نبرد علیه رحمانستان</div>
-            <p>
-                عملیات کوبش، بدون شک بزرگ‌ترین، پیچیده‌ترین و تأثیرگذارترین کارزار نظامی منطقه در دهه‌ی اخیر است که با هدفی راهبردی و حیاتی، یعنی مقابله با رحمان مفسد و ریشه‌کنی کامل نفوذ و شبکه‌های فساد او در کشور رحمانستان، آغاز گردید. رحمان مفسد که سال‌ها با استفاده از منابع مالی عظیم و روابط فراملی، امنیت و ثبات چندین کشور را تحت تأثیر منفی خود قرار داده بود، به عنوان یک تهدید وجودی برای نظم منطقه‌ای شناخته می‌شد. عملیات کوبش با همکاری و اتحاد بی‌سابقه‌ی تیم قدرتمند کوبش و با پیوستن همه‌جانبه‌ی ایالات متحده کادریا به این ائتلاف عظیم، کلید خورد. حملات سنگین، همه‌جانبه و مداوم که از سال ۲۰۲۵ تاکنون علیه پایگاه‌ها، خطوط تدارکاتی و مراکز تصمیم‌گیری رحمان ادامه دارد، ضربات مهلک و جبران‌ناپذیری بر پیکره‌ی شبکه‌های گسترده‌ی فساد وابسته به او وارد کرده است. اگرچه این جنگ سخت و پیچیده تا به امروز به پایان نرسیده و همچنان ادامه دارد، اما اراده‌ی پولادین رزمندگان، همبستگی مثال‌زدنی نیروهای بین‌المللی و پیشرفت‌های چشمگیر میدانی، چشم‌اندازی روشن و امیدوارکننده را برای پیروزی قاطع و نهایی بر این تهدید بزرگ ترسیم می‌کند. افکار عمومی منطقه، این عملیات را نماد عزم راسخ برای مبارزه با فساد و برقراری عدالت می‌دانند.
-            </p>
-        </div>
-
-    </div>
-
-    <a href="index.html" class="back-link">← بازگشت به صفحه اصلی</a>
+    <!-- تماس -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title" style="border-right: none; padding-right: 0; text-align: center;">📢 ما را دنبال کنید</h2>
+        <p style="text-align: center; font-size: 18px;">
+            <strong>کانال رسمی تلگرام:</strong><br />
+            <a href="https://t.me/USKOFFI" target="_blank">t.me/USKOFFI</a>
+        </p>
+    </section>
 
 </main>
+
+<!-- عکس شناور -->
+<img src="https://cdn.imgurl.ir/uploads/v907064_InShot_20260811_133247413.png" alt="USK" class="floating-kad" />
 
 <footer>
     <div class="container">
@@ -519,12 +632,6 @@
         </div>
     </div>
 </footer>
-    <!-- ====== عکس شناور در گوشه بالا چپ ====== -->
-<img src="https://cdn.imgurl.ir/uploads/v907064_InShot_20260811_133247413.png" 
-     alt="USK" 
-     style="position: fixed; top: 0; left: 0; width: 120px; height: auto; z-index: 999; border-radius: 0 0 16px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.1); opacity: 0.95; transition: 0.3s;" 
-     onmouseover="this.style.transform='scale(1.02)'; this.style.opacity='1';" 
-     onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.95';" />
 
 </body>
 </html>
