@@ -760,61 +760,58 @@
      onmouseover="this.style.opacity='1'; this.style.transform='translateY(-50%) scale(1.04)';" 
      onmouseout="this.style.opacity='0.85'; this.style.transform='translateY(-50%) scale(1)';" />
 
-<!-- ====== مثلث شناور خبر (سمت راست، بالاتر، فاصله کم) ====== -->
-<div id="newsTriangle" style="position: fixed; top: 25%; right: 10px; transform: translateY(-50%); z-index: 1000; cursor: pointer; transition: 0.4s ease; width: 120px; height: 120px; background: #d4af37; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; color: #fff; font-weight: 800; font-size: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);" onclick="toggleNews()">
+<!-- ====== مثلث افقی شناور (سمت راست، قاعده به راست) ====== -->
+<div id="newsTriangle" style="position: fixed; top: 30%; right: 0; z-index: 1000; cursor: pointer; transition: 0.4s ease; width: 100px; height: 80px; background: #d4af37; clip-path: polygon(0% 0%, 100% 50%, 0% 100%); display: flex; align-items: center; justify-content: flex-start; padding-left: 8px; color: #fff; font-weight: 800; font-size: 14px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);" onclick="toggleNews()">
     NEWS
 </div>
 
-<!-- ====== پنجره کشویی خبر با گوشه بریده و عرض بیشتر ====== -->
-<div id="newsPopup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); z-index: 999; width: 90%; max-width: 50vw; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px 24px 24px 0; padding: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); opacity: 0; pointer-events: none; transition: 0.4s ease; max-height: 80vh; overflow-y: auto; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 80%, 4% 70%, 0% 60%);">
+<!-- ====== پنجره کشویی خبر (زیر مثلث، افقی) ====== -->
+<div id="newsPopup" style="position: fixed; top: calc(30% + 90px); right: 10px; z-index: 999; width: 90%; max-width: 600px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; padding: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); opacity: 0; pointer-events: none; transition: 0.4s ease; max-height: 70vh; overflow-y: auto;">
 
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2 style="font-size: 24px; color: #1e1e1e; margin: 0;">📰 اخبار رسمی</h2>
-        <span style="cursor: pointer; font-size: 24px; color: #1e1e1e; opacity: 0.6; transition: 0.3s;" onclick="toggleNews()">✕</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h2 style="font-size: 20px; color: #1e1e1e; margin: 0;">📰 اخبار رسمی</h2>
+        <span style="cursor: pointer; font-size: 20px; color: #1e1e1e; opacity: 0.6; transition: 0.3s;" onclick="toggleNews()">✕</span>
     </div>
 
-    <!-- خبر ۱ -->
-    <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(8px); border-radius: 16px; padding: 16px; margin-bottom: 16px; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; flex-direction: column;">
+    <!-- خبر ۱ (افقی) -->
+    <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(8px); border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start;">
 
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-            <!-- عکس در سمت چپ بالا با ابعاد کوچک -->
-            <img src="https://cdn.imgurl.ir/uploads/v680313_1787983881270.png" 
-                 alt="تصویر خبر" 
-                 style="width: 55px; height: 55px; object-fit: cover; border-radius: 12px; background: transparent; border: none; flex-shrink: 0; margin-top: 4px;" />
+        <img src="https://cdn.imgurl.ir/uploads/v680313_1787983881270.png" 
+             alt="تصویر خبر" 
+             style="width: 50px; height: 50px; object-fit: cover; border-radius: 10px; background: transparent; border: none; flex-shrink: 0;" />
 
-            <div>
-                <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 14px; border-radius: 30px; margin-bottom: 6px;">سیاسی</span>
-                <h3 style="font-size: 18px; color: #1e1e1e; margin: 0 0 4px 0;">وبسایت رسمی کادریا افتتاح شد</h3>
-                <div style="color: #888; font-size: 12px; margin-bottom: 8px;">۱۰ آگوست ۲۰۲۶</div>
-                <p style="color: #2c3e50; font-size: 14px; font-weight: 300; line-height: 1.7; margin: 0;">
-                    وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد...
-                </p>
-            </div>
+        <div style="flex: 1; min-width: 180px;">
+            <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 4px;">سیاسی</span>
+            <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0;">وبسایت رسمی کادریا افتتاح شد</h3>
+            <div style="color: #888; font-size: 11px; margin-bottom: 6px;">۱۰ آگوست ۲۰۲۶</div>
+            <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.6; margin: 0;">
+                وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد...
+            </p>
         </div>
     </div>
 
-    <!-- خبرهای بعدی اینجا اضافه میشن -->
-
 </div>
 
-<!-- ====== اسکریپت باز و بسته شدن ====== -->
+<!-- ====== اسکریپت باز و بسته شدن با بزرگ‌تر شدن مثلث ====== -->
 <script>
 function toggleNews() {
     const triangle = document.getElementById('newsTriangle');
     const popup = document.getElementById('newsPopup');
 
     if (popup.style.opacity === '1') {
+        // بستن خبر
         popup.style.opacity = '0';
         popup.style.pointerEvents = 'none';
-        popup.style.transform = 'translate(-50%, -50%) scale(0.8)';
         triangle.style.opacity = '1';
         triangle.style.pointerEvents = 'auto';
+        triangle.style.transform = 'scale(1)';
     } else {
+        // باز کردن خبر
         popup.style.opacity = '1';
         popup.style.pointerEvents = 'auto';
-        popup.style.transform = 'translate(-50%, -50%) scale(1)';
-        triangle.style.opacity = '0';
-        triangle.style.pointerEvents = 'none';
+        triangle.style.opacity = '0.9';
+        triangle.style.pointerEvents = 'auto';
+        triangle.style.transform = 'scale(1.1)';
     }
 }
 </script>
