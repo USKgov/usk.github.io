@@ -765,39 +765,43 @@
     NEWS
 </div>
 
-<!-- ====== پنجره کشویی خبر (زیر مثلث، افقی) ====== -->
-<div id="newsPopup" style="position: fixed; top: calc(30% + 70px); right: 10px; z-index: 999; width: 90%; max-width: 600px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; padding: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); opacity: 0; pointer-events: none; transition: 0.4s ease; max-height: 70vh; overflow-y: auto;">
+<!-- ====== پنجره کشویی خبر با بریدگی مثلثی در پایین-چپ ====== -->
+<div id="newsPopup" style="position: fixed; top: calc(30% + 70px); right: 10px; z-index: 999; width: 90%; max-width: 600px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; padding: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); opacity: 0; pointer-events: none; transition: 0.4s ease; max-height: 70vh; overflow-y: auto; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 80%, 5% 75%, 0% 70%);">
 
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <h2 style="font-size: 20px; color: #1e1e1e; margin: 0;">📰 اخبار رسمی</h2>
         <!-- دکمه بستن حذف شد -->
     </div>
 
-    <!-- خبر ۱ (افقی، با عکس بزرگ‌تر در بالا-چپ) -->
-    <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(8px); border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; flex-direction: column;">
+    <!-- خبر ۱ -->
+    <div style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1px solid rgba(255, 255, 255, 0.15); display: flex; flex-direction: column; position: relative; overflow: hidden;">
 
-        <!-- عکس بزرگ‌تر در سمت چپ و بالای خبر -->
-        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 8px;">
+        <!-- عکس در بالا-چپ با نصف پایینی پنهان -->
+        <div style="position: absolute; top: 0; left: 0; width: 120px; height: 120px; overflow: hidden; border-radius: 12px 0 0 0; background: transparent; pointer-events: none; z-index: 1;">
             <img src="https://cdn.imgurl.ir/uploads/v680313_1787983881270.png" 
                  alt="تصویر خبر" 
-                 style="width: 100px; height: 100px; object-fit: cover; border-radius: 12px; background: transparent; border: none; flex-shrink: 0;" />
+                 style="width: 100%; height: 140%; object-fit: cover; display: block; transform: translateY(-10%); background: transparent; border: none;" />
+        </div>
 
-            <div>
+        <!-- محتوای خبر (تیتر در سمت راست) -->
+        <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; padding-right: 10px; position: relative; z-index: 2; min-height: 120px;">
+
+            <div style="display: flex; flex-direction: column; align-items: flex-end; width: 100%;">
                 <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 4px;">سیاسی</span>
                 <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0;">وبسایت رسمی کادریا افتتاح شد</h3>
                 <div style="color: #888; font-size: 11px; margin-bottom: 6px;">۱۰ آگوست ۲۰۲۶</div>
             </div>
-        </div>
 
-        <!-- توضیحات خبر در خط بعد -->
-        <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.6; margin: 0;">
-            وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد. این وبسایت شامل بخش‌های مختلفی از جمله معرفی کشور، اخبار رسمی و تماس با نهادهای دولتی است. شهروندان می‌توانند از این پس اخبار و بیانیه‌های رسمی را از این مرجع پیگیری کنند.
-        </p>
+            <!-- توضیحات خبر -->
+            <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.6; margin: 0; text-align: right;">
+                وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد. این وبسایت شامل بخش‌های مختلفی از جمله معرفی کشور، اخبار رسمی و تماس با نهادهای دولتی است. شهروندان می‌توانند از این پس اخبار و بیانیه‌های رسمی را از این مرجع پیگیری کنند.
+            </p>
+        </div>
     </div>
 
 </div>
 
-<!-- ====== اسکریپت باز و بسته شدن با کلیک روی مثلث ====== -->
+<!-- ====== اسکریپت باز و بسته شدن ====== -->
 <script>
 function toggleNews() {
     const triangle = document.getElementById('newsTriangle');
