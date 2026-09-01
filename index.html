@@ -759,23 +759,44 @@
      style="position: fixed; left: 0; top: 45%; transform: translateY(-50%); width: 120px; height: auto; z-index: 999; opacity: 0.85; transition: 0.3s ease; box-shadow: none; border: none; background: transparent;" 
      onmouseover="this.style.opacity='1'; this.style.transform='translateY(-50%) scale(1.04)';" 
      onmouseout="this.style.opacity='0.85'; this.style.transform='translateY(-50%) scale(1)';" />
-
 <!-- ====== مثلث افقی شناور (قاعده به راست، نوک به چپ) ====== -->
 <div id="newsTriangle" style="position: fixed; top: 30%; right: 0; z-index: 1000; cursor: pointer; transition: 0.4s ease; width: 80px; height: 60px; background: #d4af37; clip-path: polygon(0% 50%, 100% 0%, 100% 100%); display: flex; align-items: center; justify-content: flex-start; padding-left: 6px; color: #fff; font-weight: 700; font-size: 12px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);" onclick="toggleNews()">
     NEWS
 </div>
 
-<!-- ====== پنجره کشویی خبر با بک‌گراند سفید و حاشیه طلایی ====== -->
+<!-- ====== پنجره کشویی خبر ====== -->
 <div id="newsPopup" style="position: fixed; top: calc(30% + 70px); right: 10px; z-index: 999; width: 90%; max-width: 600px; background: #ffffff; border-radius: 16px; padding: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); border: 2px solid #d4af37; opacity: 0; pointer-events: none; transition: 0.4s ease; max-height: 70vh; overflow-y: auto; direction: rtl;">
 
-    <!-- خبر ۱ (راست‌چین کامل) -->
+    <!-- ====== خبر جدید: مورگان (بالاتر) ====== -->
+    <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #eee;">
+
+        <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 6px;">خبر فوری</span>
+        
+        <a href="https://USKgov.github.io/KBCNEWS/Post.html" target="_blank" style="text-decoration: none; color: inherit; width: 100%;">
+            <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0; width: 100%; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#1e1e1e'">
+                ژنرال مورگان به عنوان رئیس کل سپاه پاسداران کادریا منصوب شد
+            </h3>
+        </a>
+
+        <div style="color: #888; font-size: 11px; margin-bottom: 8px; width: 100%;">۱ سپتامبر ۲۰۲۶</div>
+
+        <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.7; margin: 0; width: 100%;">
+            طبق اعلام رسمی مقامات کادریا، ژنرال دکستر مورگان به عنوان رئیس کل سپاه پاسداران منصوب شد. این اقدام برای مقابله با رحمان و حمایت از عملیات کوبش انجام شده است.
+        </p>
+
+        <a href="https://USKgov.github.io/KBCNEWS/Post.html" target="_blank" style="display: inline-block; margin-top: 12px; color: #d4af37; font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottomColor='#d4af37'" onmouseout="this.style.borderBottomColor='transparent'">
+            مشاهده کامل خبر در KBC News →
+        </a>
+    </div>
+
+    <!-- ====== خبر قدیمی: افتتاح وبسایت (پایین‌تر) ====== -->
     <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
 
         <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 6px;">سیاسی</span>
         <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0; width: 100%;">وبسایت رسمی کادریا افتتاح شد</h3>
         <div style="color: #888; font-size: 11px; margin-bottom: 8px; width: 100%;">۱۰ آگوست ۲۰۲۶</div>
         <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.7; margin: 0; width: 100%;">
-            وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد. این وبسایت شامل بخش‌های مختلفی از جمله معرفی کشور، اخبار رسمی و تماس با نهادهای دولتی است. شهروندان می‌توانند از این پس اخبار و بیانیه‌های رسمی را از این مرجع پیگیری کنند.
+            وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد...
         </p>
     </div>
 
@@ -816,5 +837,6 @@ function toggleNews() {
     background: transparent;
 }
 </style>
+
 </body>
 </html>
