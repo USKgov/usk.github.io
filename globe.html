@@ -8,14 +8,18 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Tahoma', sans-serif;
-            background: #a8d8ea;
+            background: #d6ecf5;
             overflow: hidden;
             touch-action: none;
         }
         #globeViz {
             width: 100vw;
             height: 100vh;
-            background: #a8d8ea;
+            background: #d6ecf5;
+        }
+        /* ====== فیلتر روشن‌کننده برای اقیانوس‌ها ====== */
+        #globeViz canvas {
+            filter: brightness(1.35) saturate(0.6) contrast(0.95);
         }
         #info {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
@@ -29,7 +33,7 @@
         #loading {
             position: fixed; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            color: #d4af37; font-size: 18px; font-weight: 700; z-index: 200;
+            color: #1a5276; font-size: 18px; font-weight: 700; z-index: 200;
         }
     </style>
 </head>
@@ -47,71 +51,32 @@
         const visibleCountries = {
             "United States of America": {
                 name: "United States of Kadria",
-                color: "#d4af37",
-                centerLat: 39,
-                centerLng: -98
+                color: "#d4af37"
             },
             "Canada": {
                 name: "Hekmatestan",
-                color: "#4a90e2",
-                centerLat: 56,
-                centerLng: -106
+                color: "#9b59b6"  // ← بنفش
             },
             "Mexico": {
                 name: "Javanestan",
-                color: "#e74c3c",
-                centerLat: 23,
-                centerLng: -102
+                color: "#e74c3c"
             },
             "Russia": {
                 name: "Ghahremanland",
-                color: "#27ae60",
-                centerLat: 60,
-                centerLng: 90
+                color: "#27ae60"
             }
         };
 
         // ============================================
-        // ۲. لیبل‌های روی نقشه (کشورها + خلیج)
+        // ۲. لیبل‌ها
         // ============================================
         const mapLabels = [
-            // --- کشورها ---
-            {
-                lat: 39, lng: -98,
-                name: "United States of Kadria",
-                color: "#d4af37",
-                size: 1.2,
-                type: "country"
-            },
-            {
-                lat: 56, lng: -106,
-                name: "Hekmatestan",
-                color: "#4a90e2",
-                size: 1.0,
-                type: "country"
-            },
-            {
-                lat: 23, lng: -102,
-                name: "Javanestan",
-                color: "#e74c3c",
-                size: 1.0,
-                type: "country"
-            },
-            {
-                lat: 60, lng: 90,
-                name: "Ghahremanland",
-                color: "#27ae60",
-                size: 1.0,
-                type: "country"
-            },
-            // --- خلیج کادریا (رنگ متن سیاه) ---
-            {
-                lat: 25, lng: -90,
-                name: "Kadrian Gulf",
-                color: "#000000",
-                size: 0.7,
-                type: "water"
-            }
+            { lat: 39, lng: -98, name: "United States of Kadria", color: "#d4af37", size: 1.2 },
+            { lat: 56, lng: -106, name: "Hekmatestan", color: "#9b59b6", size: 1.0 },
+            { lat: 23, lng: -102, name: "Javanestan", color: "#e74c3c", size: 1.0 },
+            { lat: 60, lng: 90, name: "Ghahremanland", color: "#27ae60", size: 1.0 },
+            // خلیج کادریا - متن سیاه
+            { lat: 25, lng: -90, name: "Kadrian Gulf", color: "#000000", size: 0.7 }
         ];
 
         // ============================================
@@ -124,15 +89,14 @@
         // ============================================
         const world = Globe()
             (document.getElementById('globeViz'))
-            // --- تصویر کره با اقیانوس آبی ---
             .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
             .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-            .backgroundColor('#a8d8ea')
+            .backgroundColor('#d6ecf5')
             .showAtmosphere(true)
-            .atmosphereColor('#d4af37')
+            .atmosphereColor('#a8d8ea')
             .atmosphereAltitude(0.12)
 
-            // --- کشورهای نمایش داده شده ---
+            // --- کشورها ---
             .polygonAltitude(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
                 return visibleCountries[realName] ? 0.015 : 0.005;
@@ -140,18 +104,18 @@
             .polygonCapColor(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
                 if (visibleCountries[realName]) return visibleCountries[realName].color;
-                // --- کشورهای دیگه: روشن‌تر ---
-                return 'rgba(180, 200, 220, 0.35)';
+                // --- خشکی‌های روشن‌تر ---
+                return 'rgba(220, 235, 245, 0.55)';
             })
             .polygonSideColor(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
                 if (visibleCountries[realName]) return 'rgba(212, 175, 55, 0.5)';
-                return 'rgba(150, 180, 210, 0.15)';
+                return 'rgba(200, 220, 235, 0.25)';
             })
             .polygonStrokeColor(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
                 if (visibleCountries[realName]) return '#ffffff';
-                return 'rgba(255, 255, 255, 0.15)';
+                return 'rgba(255, 255, 255, 0.25)';
             })
             .polygonLabel(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
@@ -176,7 +140,7 @@
                 showInfo(`📍 ${visibleCountries[realName].name}`);
             })
 
-            // --- لیبل‌های دائمی روی نقشه ---
+            // --- لیبل‌ها ---
             .labelsData(mapLabels)
             .labelLat(d => d.lat)
             .labelLng(d => d.lng)
@@ -186,11 +150,21 @@
             .labelColor(d => d.color)
             .labelResolution(2)
             .labelAltitude(0.02)
-            .labelLabel(d => `
-                <div style="background: rgba(0,0,0,0.75); color: ${d.color}; padding: 6px 14px; border-radius: 8px; font-family: Tahoma; border: 1px solid ${d.color}; white-space: nowrap;">
-                    <b style="font-size: 13px;">${d.name}</b>
-                </div>
-            `);
+            .labelLabel(d => {
+                // برای خلیج کادریا (متن سیاه) پس‌زمینه روشن‌تر
+                if (d.name === "Kadrian Gulf") {
+                    return `
+                        <div style="background: rgba(255, 255, 255, 0.85); color: #000000; padding: 6px 14px; border-radius: 8px; font-family: Tahoma; border: 1px solid #000000; white-space: nowrap;">
+                            <b style="font-size: 13px;">${d.name}</b>
+                        </div>
+                    `;
+                }
+                return `
+                    <div style="background: rgba(0,0,0,0.75); color: ${d.color}; padding: 6px 14px; border-radius: 8px; font-family: Tahoma; border: 1px solid ${d.color}; white-space: nowrap;">
+                        <b style="font-size: 13px;">${d.name}</b>
+                    </div>
+                `;
+            });
 
         // ============================================
         // ۵. تابع نمایش اطلاعات
