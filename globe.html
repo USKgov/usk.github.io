@@ -6,8 +6,17 @@
     <title>United States of Kadria | Interactive Map</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Tahoma', sans-serif; background: #000; overflow: hidden; touch-action: none; }
-        #globeViz { width: 100vw; height: 100vh; }
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background: #a8d8ea;
+            overflow: hidden;
+            touch-action: none;
+        }
+        #globeViz {
+            width: 100vw;
+            height: 100vh;
+            background: #a8d8ea;
+        }
         #info {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(212, 175, 55, 0.95); color: #fff;
@@ -38,31 +47,70 @@
         const visibleCountries = {
             "United States of America": {
                 name: "United States of Kadria",
-                color: "#d4af37"
+                color: "#d4af37",
+                centerLat: 39,
+                centerLng: -98
             },
             "Canada": {
                 name: "Hekmatestan",
-                color: "#4a90e2"
+                color: "#4a90e2",
+                centerLat: 56,
+                centerLng: -106
             },
             "Mexico": {
                 name: "Javanestan",
-                color: "#e74c3c"
+                color: "#e74c3c",
+                centerLat: 23,
+                centerLng: -102
             },
             "Russia": {
                 name: "Ghahremanland",
-                color: "#27ae60"
+                color: "#27ae60",
+                centerLat: 60,
+                centerLng: 90
             }
         };
 
         // ============================================
-        // ۲. لیبل‌های دریاها و خلیج‌ها
+        // ۲. لیبل‌های روی نقشه (کشورها + خلیج)
         // ============================================
-        const waterLabels = [
+        const mapLabels = [
+            // --- کشورها ---
             {
-                lat: 25,
-                lng: -90,
+                lat: 39, lng: -98,
+                name: "United States of Kadria",
+                color: "#d4af37",
+                size: 1.2,
+                type: "country"
+            },
+            {
+                lat: 56, lng: -106,
+                name: "Hekmatestan",
+                color: "#4a90e2",
+                size: 1.0,
+                type: "country"
+            },
+            {
+                lat: 23, lng: -102,
+                name: "Javanestan",
+                color: "#e74c3c",
+                size: 1.0,
+                type: "country"
+            },
+            {
+                lat: 60, lng: 90,
+                name: "Ghahremanland",
+                color: "#27ae60",
+                size: 1.0,
+                type: "country"
+            },
+            // --- خلیج کادریا (رنگ متن سیاه) ---
+            {
+                lat: 25, lng: -90,
                 name: "Kadrian Gulf",
-                color: "#5dade2"
+                color: "#000000",
+                size: 0.7,
+                type: "water"
             }
         ];
 
@@ -76,29 +124,34 @@
         // ============================================
         const world = Globe()
             (document.getElementById('globeViz'))
-            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+            // --- تصویر کره با اقیانوس آبی ---
+            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
             .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-            .backgroundColor('#000010')
+            .backgroundColor('#a8d8ea')
             .showAtmosphere(true)
             .atmosphereColor('#d4af37')
-            .atmosphereAltitude(0.15)
+            .atmosphereAltitude(0.12)
 
-            // --- کشورها ---
+            // --- کشورهای نمایش داده شده ---
             .polygonAltitude(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
-                return visibleCountries[realName] ? 0.015 : 0;
+                return visibleCountries[realName] ? 0.015 : 0.005;
             })
             .polygonCapColor(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
-                return visibleCountries[realName] ? visibleCountries[realName].color : 'rgba(0,0,0,0)';
+                if (visibleCountries[realName]) return visibleCountries[realName].color;
+                // --- کشورهای دیگه: روشن‌تر ---
+                return 'rgba(180, 200, 220, 0.35)';
             })
             .polygonSideColor(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
-                return visibleCountries[realName] ? 'rgba(212, 175, 55, 0.4)' : 'rgba(0,0,0,0)';
+                if (visibleCountries[realName]) return 'rgba(212, 175, 55, 0.5)';
+                return 'rgba(150, 180, 210, 0.15)';
             })
             .polygonStrokeColor(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
-                return visibleCountries[realName] ? '#ffffff' : 'rgba(0,0,0,0)';
+                if (visibleCountries[realName]) return '#ffffff';
+                return 'rgba(255, 255, 255, 0.15)';
             })
             .polygonLabel(feat => {
                 const realName = feat.properties.ADMIN || feat.properties.NAME;
@@ -114,7 +167,7 @@
                 world.polygonAltitude(f => {
                     const n = f.properties.ADMIN || f.properties.NAME;
                     if (feat && n === realName && visibleCountries[n]) return 0.05;
-                    return visibleCountries[n] ? 0.015 : 0;
+                    return visibleCountries[n] ? 0.015 : 0.005;
                 });
             })
             .onPolygonClick(feat => {
@@ -123,22 +176,19 @@
                 showInfo(`📍 ${visibleCountries[realName].name}`);
             })
 
-            // --- لیبل‌های دریاها ---
-            .labelsData(waterLabels)
+            // --- لیبل‌های دائمی روی نقشه ---
+            .labelsData(mapLabels)
             .labelLat(d => d.lat)
             .labelLng(d => d.lng)
             .labelText(d => d.name)
-            .labelSize(d => 0.8)
-            .labelDotRadius(d => 0.3)
+            .labelSize(d => d.size)
+            .labelDotRadius(0)
             .labelColor(d => d.color)
             .labelResolution(2)
-            .labelAltitude(0.005)
-            .onLabelClick(d => {
-                showInfo(`🌊 ${d.name}`);
-            })
+            .labelAltitude(0.02)
             .labelLabel(d => `
-                <div style="background: rgba(0,0,0,0.85); color: ${d.color}; padding: 8px 16px; border-radius: 10px; font-family: Tahoma; border: 1px solid ${d.color};">
-                    <b style="font-size: 15px;">${d.name}</b>
+                <div style="background: rgba(0,0,0,0.75); color: ${d.color}; padding: 6px 14px; border-radius: 8px; font-family: Tahoma; border: 1px solid ${d.color}; white-space: nowrap;">
+                    <b style="font-size: 13px;">${d.name}</b>
                 </div>
             `);
 
@@ -171,11 +221,11 @@
         // ۷. چرخش و زوم
         // ============================================
         world.controls().autoRotate = true;
-        world.controls().autoRotateSpeed = 0.4;
+        world.controls().autoRotateSpeed = 0.35;
         world.controls().enableZoom = true;
         world.controls().enablePan = false;
         world.controls().minDistance = 180;
-        world.controls().maxDistance = 700;
+        world.controls().maxDistance = 600;
 
         document.addEventListener('touchstart', () => {
             world.controls().autoRotate = false;
@@ -190,7 +240,7 @@
         });
 
         // شروع از زاویه‌ی آمریکای شمالی
-        world.pointOfView({ lat: 45, lng: -100, altitude: 2 }, 2000);
+        world.pointOfView({ lat: 40, lng: -100, altitude: 2 }, 2000);
     </script>
 </body>
 </html>
