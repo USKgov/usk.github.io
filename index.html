@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ایالات متحده کادریا | وبسایت رسمی</title>
     
-    <!-- ====== فونت ایران سنس ====== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Iranian+Sans&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Iranian Sans', 'Vazirmatn', 'Tahoma', sans-serif;
             background: #fcf9f2;
@@ -28,28 +19,13 @@
             direction: rtl;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f5f0e6;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d4af37;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b8962e;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f5f0e6; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #b8962e; }
 
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 15px 0;
-        }
+        .container { width: 92%; max-width: 1200px; margin: auto; padding: 15px 0; }
 
-        /* ====== هدر با لوگو و منو ====== */
         header {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
@@ -76,11 +52,7 @@
             gap: 6px;
         }
 
-        .logo img {
-            height: 55px;
-            width: auto;
-            display: block;
-        }
+        .logo img { height: 55px; width: auto; display: block; }
 
         .logo h1 {
             font-size: 30px;
@@ -90,13 +62,18 @@
             margin: 0;
         }
 
-        .logo h1 span {
-            color: #d4af37;
+        .logo h1 span { color: #d4af37; }
+
+        .logo .english-name {
+            font-family: 'Times New Roman', Georgia, serif;
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 1px;
+            font-weight: normal;
+            margin-top: 2px;
         }
 
-        nav {
-            margin-top: 8px;
-        }
+        nav { margin-top: 8px; }
 
         nav a {
             color: #1e1e1e;
@@ -121,15 +98,9 @@
             transition: 0.3s ease;
         }
 
-        nav a:hover {
-            color: #d4af37;
-        }
+        nav a:hover { color: #d4af37; }
+        nav a:hover::after { width: 100%; }
 
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* ====== بنر اصلی ====== */
         .hero {
             background: linear-gradient(145deg, #faf6ed, #f3ecdb);
             border: 1px solid #e8dcc8;
@@ -144,33 +115,13 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero h2 {
-            font-size: 36px;
-            font-weight: 900;
-            color: #1e1e1e;
-        }
-
-        .hero h2 span {
-            color: #d4af37;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #3a3a3a;
-            max-width: 700px;
-            margin: 12px auto 22px;
-            font-weight: 300;
-        }
+        .hero h2 { font-size: 36px; font-weight: 900; color: #1e1e1e; }
+        .hero h2 span { color: #d4af37; }
+        .hero p { font-size: 18px; color: #3a3a3a; max-width: 700px; margin: 12px auto 22px; font-weight: 300; }
 
         .btn-gold {
             display: inline-block;
@@ -200,16 +151,9 @@
             transition: 0.6s ease;
         }
 
-        .btn-gold:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35);
-        }
+        .btn-gold:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35); }
+        .btn-gold:hover::after { left: 100%; }
 
-        .btn-gold:hover::after {
-            left: 100%;
-        }
-
-        /* ====== بخش‌ها ====== */
         .section-title {
             font-size: 30px;
             font-weight: 900;
@@ -219,8 +163,7 @@
             color: #1e1e1e;
         }
 
-        .about-box,
-        .contact-section {
+        .about-box, .contact-section {
             background: #ffffff;
             padding: 35px 32px;
             border-radius: 20px;
@@ -230,18 +173,9 @@
             transition: 0.3s ease;
         }
 
-        .about-box:hover,
-        .contact-section:hover {
-            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.08);
-            transform: translateY(-2px);
-        }
+        .about-box:hover, .contact-section:hover { box-shadow: 0 8px 32px rgba(212, 175, 55, 0.08); transform: translateY(-2px); }
 
-        .about-box p {
-            color: #2c3e50;
-            font-size: 16px;
-            margin-top: 8px;
-            font-weight: 300;
-        }
+        .about-box p { color: #2c3e50; font-size: 16px; margin-top: 8px; font-weight: 300; }
 
         .info-cols {
             display: grid;
@@ -259,23 +193,9 @@
             transition: 0.3s ease;
         }
 
-        .info-item:hover {
-            background: #f0ead9;
-            transform: translateY(-3px);
-            border-color: #d4af37;
-        }
-
-        .info-item strong {
-            display: block;
-            font-size: 20px;
-            color: #1e1e1e;
-        }
-
-        .info-item span {
-            font-size: 14px;
-            color: #555;
-            font-weight: 300;
-        }
+        .info-item:hover { background: #f0ead9; transform: translateY(-3px); border-color: #d4af37; }
+        .info-item strong { display: block; font-size: 20px; color: #1e1e1e; }
+        .info-item span { font-size: 14px; color: #555; font-weight: 300; }
 
         .news-card {
             background: #ffffff;
@@ -287,10 +207,7 @@
             transition: 0.3s ease;
         }
 
-        .news-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.08);
-        }
+        .news-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(212, 175, 55, 0.08); }
 
         .news-card .tag {
             display: inline-block;
@@ -304,21 +221,10 @@
             letter-spacing: 0.5px;
         }
 
-        .news-card h3 {
-            color: #1e1e1e;
-            font-size: 20px;
-        }
+        .news-card h3 { color: #1e1e1e; font-size: 20px; }
+        .news-card .date { color: #888; font-size: 13px; font-weight: 300; }
 
-        .news-card .date {
-            color: #888;
-            font-size: 13px;
-            font-weight: 300;
-        }
-
-        .contact-section p {
-            font-size: 17px;
-            margin: 6px 0;
-        }
+        .contact-section p { font-size: 17px; margin: 6px 0; }
 
         .contact-section a {
             color: #d4af37;
@@ -328,11 +234,8 @@
             border-bottom: 1px dotted transparent;
         }
 
-        .contact-section a:hover {
-            border-bottom-color: #d4af37;
-        }
+        .contact-section a:hover { border-bottom-color: #d4af37; }
 
-        /* ====== کارت‌های جنگ با توضیحات کامل و طولانی ====== */
         .war-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -360,10 +263,7 @@
         .war-card:nth-child(5) { animation-delay: 0.33s; }
         .war-card:nth-child(6) { animation-delay: 0.40s; }
 
-        .war-card:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 16px 48px rgba(212, 175, 55, 0.12);
-        }
+        .war-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 16px 48px rgba(212, 175, 55, 0.12); }
 
         .war-card img {
             width: 100%;
@@ -374,9 +274,7 @@
             transition: 0.5s ease;
         }
 
-        .war-card:hover img {
-            transform: scale(1.02);
-        }
+        .war-card:hover img { transform: scale(1.02); }
 
         .war-card .caption {
             font-size: 13px;
@@ -386,25 +284,9 @@
             font-weight: 300;
         }
 
-        .war-card h3 {
-            font-size: 22px;
-            color: #1e1e1e;
-            margin-bottom: 4px;
-        }
-
-        .war-card .date {
-            color: #888;
-            font-size: 14px;
-            margin-bottom: 6px;
-            font-weight: 300;
-        }
-
-        .war-card .location {
-            font-size: 14px;
-            color: #d4af37;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
+        .war-card h3 { font-size: 22px; color: #1e1e1e; margin-bottom: 4px; }
+        .war-card .date { color: #888; font-size: 14px; margin-bottom: 6px; font-weight: 300; }
+        .war-card .location { font-size: 14px; color: #d4af37; font-weight: 600; margin-bottom: 10px; }
 
         .war-card p {
             color: #2c3e50;
@@ -415,37 +297,53 @@
             line-height: 1.9;
         }
 
-        /* ====== عکس شناور ====== */
-        .floating-kad {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 160px;
+        .alliance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .alliance-card {
+            background: #f5f5f5;
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid #e0dccd;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alliance-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(212, 175, 55, 0.1); border-color: #d4af37; }
+
+        .alliance-card img {
+            width: 60px;
             height: auto;
-            z-index: 999;
-            border-radius: 0 0 16px 0;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            opacity: 0.92;
-            transition: 0.4s ease;
-            animation: floatGlow 4s ease-in-out infinite;
+            margin-bottom: 6px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @keyframes floatGlow {
-            0%,
-            100% {
-                filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.2));
-            }
-            50% {
-                filter: drop-shadow(0 4px 24px rgba(212, 175, 55, 0.4));
-            }
+        .alliance-card h4 { font-size: 16px; font-weight: 700; color: #1e1e1e; margin: 0; }
+        .alliance-card.semi-active { opacity: 0.8; }
+
+        .alliance-card .end-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #cc0000;
+            color: #fff;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(204, 0, 0, 0.3);
         }
 
-        .floating-kad:hover {
-            transform: scale(1.04);
-            opacity: 1;
-        }
-
-        /* ====== فوتر ====== */
         footer {
             background: #ffffff;
             border-top: 4px solid #d4af37;
@@ -463,458 +361,167 @@
             transition: 0.3s ease;
         }
 
-        footer a:hover {
-            color: #d4af37;
+        footer a:hover { color: #d4af37; }
+
+        footer .copy { margin-top: 12px; color: #777; font-size: 14px; font-weight: 300; }
+
+        #newsTriangle {
+            position: fixed;
+            top: 30%;
+            right: 0;
+            z-index: 1000;
+            cursor: pointer;
+            transition: 0.4s ease;
+            width: 80px;
+            height: 60px;
+            background: #d4af37;
+            clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 6px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 12px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
         }
 
-        footer .copy {
-            margin-top: 12px;
-            color: #777;
-            font-size: 14px;
-            font-weight: 300;
+        #newsPopup {
+            position: fixed;
+            top: calc(30% + 70px);
+            right: 10px;
+            z-index: 999;
+            width: 90%;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 2px solid #d4af37;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s ease;
+            max-height: 70vh;
+            overflow-y: auto;
+            direction: rtl;
         }
 
-        /* ====== ریسپانسیو ====== */
+        #newsPopup::-webkit-scrollbar { width: 4px; }
+        #newsPopup::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+        #newsPopup::-webkit-scrollbar-track { background: transparent; }
+
         @media (max-width: 750px) {
-            header .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav {
-                margin-top: 12px;
-            }
-
-            nav a {
-                margin: 0 8px;
-                font-size: 14px;
-            }
-
-            .hero h2 {
-                font-size: 26px;
-            }
-
-            .hero {
-                padding: 50px 20px 40px;
-            }
-
-            .info-cols {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .war-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .floating-kad {
-                width: 100px;
-            }
+            header .container { flex-direction: column; text-align: center; }
+            nav { margin-top: 12px; }
+            nav a { margin: 0 8px; font-size: 14px; }
+            .hero h2 { font-size: 26px; }
+            .hero { padding: 50px 20px 40px; }
+            .info-cols { grid-template-columns: 1fr 1fr; }
+            .war-grid { grid-template-columns: 1fr; }
+            .alliance-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 480px) {
-            .floating-kad {
-                width: 70px;
-            }
+            .alliance-grid { grid-template-columns: 1fr 1fr; }
+            .alliance-card h4 { font-size: 14px; }
+            .alliance-card img { width: 50px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ====== هدر با لوگو ====== -->
-    <header>
+<!-- ====== هدر ====== -->
+<header>
     <div class="container">
         <div class="logo">
             <img src="https://cdn.imgurl.ir/uploads/i40270_Picsart_25-05-30_16-57-45-704.png" alt="لوگوی کادریا" />
-            <div style="text-align: center;">
-                <h1>ایالات متحده <span>کادریا</span></h1>
-                <div style="font-family: 'Times New Roman', Georgia, serif; font-size: 14px; color: #888; letter-spacing: 1px; font-weight: normal; margin-top: 2px;">
-                    United States of Kadria
-                </div>
-            </div>
+            <h1>ایالات متحده <span>کادریا</span></h1>
+            <div class="english-name">United States of Kadria</div>
         </div>
         <nav>
             <a href="index.html">خانه</a>
-            <a href="#wars">مروری بر جنگ‌ها</a>
+            <a href="#about">درباره</a>
+            <a href="#wars">جنگ‌ها</a>
+            <a href="#alliances">اتحادها</a>
             <a href="#contact">تماس</a>
         </nav>
     </div>
-    </header>
+</header>
 
-    <!-- ====== محتوای اصلی ====== -->
-    <main class="container">
+<!-- ====== محتوای اصلی ====== -->
+<main class="container">
 
-        <!-- ====== بنر ====== -->
-        <section class="hero">
-            <div class="hero-text">
-                <h2>به وبسایت رسمی <span>کادریا</span> خوش آمدید</h2>
-                <p>کشوری پیشرو در توسعه، فناوری و همکاری‌های بین‌المللی.</p>
-                <a href="#wars" class="btn-gold">مروری بر جنگ‌ها</a>
+    <!-- ====== بنر ====== -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>به وبسایت رسمی <span>کادریا</span> خوش آمدید</h2>
+            <p>کشوری پیشرو در توسعه، فناوری و همکاری‌های بین‌المللی.</p>
+            <a href="#wars" class="btn-gold">مروری بر جنگ‌ها</a>
+        </div>
+    </section>
+
+    <!-- ====== درباره ما با نقشه سه‌بعدی ====== -->
+    <section id="about" class="about-box">
+        <h2 class="section-title" style="border-right: none; padding-right: 0;">دربارهٔ ایالات متحدهٔ کادریا</h2>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <iframe 
+                src="globe.html" 
+                style="width: 100%; max-width: 600px; aspect-ratio: 1 / 1; border: none; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); background: #d6ecf5; display: block; margin: 0 auto;"
+                title="نقشه سه‌بعدی کادریا"
+                loading="lazy">
+            </iframe>
+        </div>
+        
+        <p>
+            کادریا کشوری در <strong>کمپرسی میانه</strong> است که از شمال با <strong>حکمتستان</strong> و از جنوب با <strong>جوانستان</strong> هم‌مرز است. این کشور با تکیه بر مشارکت عمومی، شفافیت و توسعهٔ پایدار، مسیر پیشرفت خود را در عرصه‌های داخلی و بین‌المللی هموار می‌کند.
+        </p>
+        <div class="info-cols">
+            <div class="info-item"><strong>۲۰۲۳</strong><span>تاریخ تأسیس</span></div>
+            <div class="info-item"><strong>دموکراسی</strong><span>نظام حکومتی</span></div>
+            <div class="info-item"><strong>حکمتستان (شمال)</strong><span>همسایه</span></div>
+            <div class="info-item"><strong>جوانستان (جنوب)</strong><span>همسایه</span></div>
+        </div>
+    </section>
+
+    <!-- ====== اخبار رسمی ====== -->
+    <section id="news">
+        <h2 class="section-title">🗞️ اخبار رسمی</h2>
+        <div class="news-card">
+            <span class="tag">سیاسی</span>
+            <h3>وبسایت رسمی ایالات متحدهٔ کادریا افتتاح شد</h3>
+            <div class="date">۱۰ آگوست ۲۰۲۶</div>
+            <p>وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد.</p>
+        </div>
+    </section>
+
+    <!-- ====== بخش جنگ‌ها ====== -->
+    <section id="wars">
+        <h2 class="section-title">⚔️ مروری بر جنگ‌ها</h2>
+        <p style="color: #555; font-size: 18px; margin-bottom: 20px; font-weight: 300;">روایتی تاریخی از نبردهایی که سرنوشت کادریا را رقم زدند.</p>
+
+        <div class="war-grid">
+
+            <!-- جنگ ۱: جوانستان -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/y318270_IMG_20260810_204130_137.jpg" alt="جنگنده E10" />
+                <div class="caption">📸 جنگنده E10 جوانستانی سرنگون شده</div>
+                <img src="https://cdn.imgurl.ir/uploads/m87986_IMG_20260810_204819_826.jpg" alt="امضای تفاهم‌نامه" />
+                <div class="caption">📸 امضای تفاهم‌نامه موقت صلح - از راست: رئیس‌جمهور کادریا، رئیس‌جمهور جوانستان</div>
+                <img src="https://cdn.imgurl.ir/uploads/v78854_IMG_20260810_203853_538.jpg" alt="دادگاه" />
+                <div class="caption">📸 رئیس جمهور جوانستان در دادگاه بین المللی</div>
+                <h3>⚔️ جنگ جوانستان</h3>
+                <div class="date">📅 ۱۵ ژانویه ۲۰۲۳ – ۱۵ ژانویه ۲۰۲۵</div>
+                <div class="location">📍 مرزهای جنوبی کادریا</div>
+                <p>جنگ جوانستان، اولین درگیری نظامی بزرگ در تاریخ ایالات متحده کادریا بود که در میانه دی‌ماه ۱۴۰۱ با یک حمله‌ی غافلگیرانه از سوی نیروهای جوانستان به مناطق مرزی جنوبی آغاز شد. این تجاوز آشکار، که بدون هیچ هشدار قبلی صورت گرفت، موجب به حرکت درآمدن تمامی ظرفیت‌های دفاعی کادریا شد. آنچه در ابتدا یک تهاجم کوتاه‌مدت به نظر می‌رسید، به جنگی تمام‌عیار و دو ساله تبدیل گردید که در طی آن، نبردهای سنگین و عملیات‌های گسترده‌ای در جبهه‌های جنوبی رخ داد. نیروهای مسلح کادریا با وجود غافلگیری اولیه، با اتکا به آموزش دیده‌گی، روحیه‌ی جنگاوری و پشتیبانی مردمی، توانستند موج‌های پیاپی حملات دشمن را دفع کنند. ضدحمله‌های استراتژیک و هوشمندانه‌ی کادریا، آرایش دفاعی جوانستان را در هم شکست و آنان را مجبور به عقب‌نشینی کرد. سرانجام، با میانجی‌گری سازمان‌های بین‌المللی و کاهش توان نظامی طرفین، آتش‌بسی برقرار شد که زمینه‌ساز صلحی پایدار و تبادل اسرای جنگی گردید. این جنگ، اگرچه خسارات مادی و معنوی زیادی بر جای گذاشت، اما به عنوان نقطه‌ی عطفی در شکل‌گیری هویت دفاعی و وحدت ملی کادریا در تاریخ ثبت شد.</p>
             </div>
-        </section>
 
-
-        <!-- ====== درباره ما ====== -->
-<section id="about" class="about-box">
-    <h2 class="section-title" style="border-right: none; padding-right: 0;">دربارهٔ ایالات متحدهٔ کادریا</h2>
-    
-    <!-- ====== کره سه‌بعدی (مربعی) ====== -->
-    <div style="text-align: center; margin: 20px 0;">
-        <iframe 
-            src="globe.html" 
-            style="width: 100%; max-width: 600px; aspect-ratio: 1 / 1; border: none; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); background: #a8d8ea; display: block; margin: 0 auto;"
-            title="نقشه سه‌بعدی کادریا"
-            loading="lazy">
-        </iframe>
-    </div>
-    
-    <p>
-        کادریا کشوری در <strong>کمپرسی میانه</strong> است که از شمال با <strong>حکمتستان</strong> و از جنوب با <strong>جوانستان</strong> هم‌مرز است. این کشور با تکیه بر مشارکت عمومی، شفافیت و توسعهٔ پایدار، مسیر پیشرفت خود را در عرصه‌های داخلی و بین‌المللی هموار می‌کند.
-    </p>
-    <div class="info-cols">
-        <div class="info-item">
-            <strong>۲۰۲۳</strong>
-            <span>تاریخ تأسیس</span>
-        </div>
-        <div class="info-item">
-            <strong>دموکراسی</strong>
-            <span>نظام حکومتی</span>
-        </div>
-        <div class="info-item">
-            <strong>حکمتستان (شمال)</strong>
-            <span>همسایه</span>
-        </div>
-        <div class="info-item">
-            <strong>جوانستان (جنوب)</strong>
-            <span>همسایه</span>
-        </div>
-    </div>
-</section>
-        <!-- ====== بخش جنگ‌ها با توضیحات کامل ====== -->
-        <section id="wars">
-            <h2 class="section-title">⚔️ مروری بر جنگ‌ها</h2>
-            <p style="color: #555; font-size: 18px; margin-bottom: 20px; font-weight: 300;">
-                روایتی تاریخی از نبردهایی که سرنوشت کادریا را رقم زدند.
-            </p>
-
-            <div class="war-grid">
-
-                <!-- ====== جنگ ۱: جوانستان ====== -->
-                <div class="war-card">
-                    <img src="https://cdn.imgurl.ir/uploads/y318270_IMG_20260810_204130_137.jpg" alt="جنگنده E10 جوانستانی سرنگون شده" />
-                    <div class="caption">📸 جنگنده E10 جوانستانی سرنگون شده</div>
-                    <img src="https://cdn.imgurl.ir/uploads/m87986_IMG_20260810_204819_826.jpg" alt="امضای تفاهم‌نامه موقت صلح" />
-                    <div class="caption">📸 امضای تفاهم‌نامه موقت صلح و تبادل اسرا - از راست: رئیس‌جمهور کادریا، رئیس‌جمهور جوانستان</div>
-                    <img src="https://cdn.imgurl.ir/uploads/v78854_IMG_20260810_203853_538.jpg" alt="رئیس جمهور جوانستان در دادگاه بین المللی" />
-                    <div class="caption">📸 رئیس جمهور جوانستان در دادگاه بین المللی</div>
-                    
-                    <h3>⚔️ جنگ جوانستان</h3>
-                    <div class="date">📅 ۱۵ ژانویه ۲۰۲۳ – ۱۵ ژانویه ۲۰۲۵</div>
-                    <div class="location">📍 مرزهای جنوبی کادریا</div>
-                    <p>
-                        جنگ جوانستان، اولین درگیری نظامی بزرگ در تاریخ ایالات متحده کادریا بود که در میانه دی‌ماه ۱۴۰۱ با یک حمله‌ی غافلگیرانه از سوی نیروهای جوانستان به مناطق مرزی جنوبی آغاز شد. این تجاوز آشکار، که بدون هیچ هشدار قبلی صورت گرفت، موجب به حرکت درآمدن تمامی ظرفیت‌های دفاعی کادریا شد. آنچه در ابتدا یک تهاجم کوتاه‌مدت به نظر می‌رسید، به جنگی تمام‌عیار و دو ساله تبدیل گردید که در طی آن، نبردهای سنگین و عملیات‌های گسترده‌ای در جبهه‌های جنوبی رخ داد. نیروهای مسلح کادریا با وجود غافلگیری اولیه، با اتکا به آموزش دیده‌گی، روحیه‌ی جنگاوری و پشتیبانی مردمی، توانستند موج‌های پیاپی حملات دشمن را دفع کنند. ضدحمله‌های استراتژیک و هوشمندانه‌ی کادریا، آرایش دفاعی جوانستان را در هم شکست و آنان را مجبور به عقب‌نشینی کرد. سرانجام، با میانجی‌گری سازمان‌های بین‌المللی و کاهش توان نظامی طرفین، آتش‌بسی برقرار شد که زمینه‌ساز صلحی پایدار و تبادل اسرای جنگی گردید. این جنگ، اگرچه خسارات مادی و معنوی زیادی بر جای گذاشت، اما به عنوان نقطه‌ی عطفی در شکل‌گیری هویت دفاعی و وحدت ملی کادریا در تاریخ ثبت شد.
-                    </p>
-                </div>
-
-                <!-- ====== جنگ دوم: جنگ خلیج کادر ====== -->
-<div class="war-card">
-    <img src="https://cdn.imgurl.ir/uploads/n57781_ChatGPT_Image______.png" 
-         alt="یگان زرهی کادریا پس از بازگشت به خاک یو اس کی در عملیات باز پس گیری دوم" 
-         style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; margin-bottom: 4px;" />
-    <div class="caption">📸 یگان زرهی کادریا پس از بازگشت به خاک یو اس کی در عملیات باز پس گیری دوم</div>
-    
-    <h3>⚓ جنگ خلیج کادر</h3>
-    <div class="date">📅 ۲۰۲۴</div>
-    <div class="location">📍 سرزمین ایالات متحده کادریا</div>
-    <p>
-        جنگ خلیج کادر، یکی از کوتاه‌مدت‌ترین اما سرنوشت‌سازترین درگیری‌های نظامی در منطقه بود که در سال ۲۰۲۴ به وقوع پیوست. این جنگ، مجموعه حملات هماهنگ ارتش متفق جوانستان و قهرمانلند به خاک ایالات متحده کادریا بود که با هدف تصرف سریع سرزمین‌های حاصل‌خیز و تأسیسات استراتژیک جنوبی طراحی شده بود. متفقین با بهره‌گیری از برتری عددی و غافلگیری تاکتیکی، توانستند در نخستین روزهای تهاجم، بخش‌های وسیعی از خاک کادریا از جمله مناطق ساحلی خلیج کادر را به اشغال خود درآورند. این اشغال کامل، ضربه‌ی سنگینی به روحیه‌ی ملی و توان دفاعی کادریا وارد کرد. با این حال، نیروهای باقی‌مانده‌ی ارتش کادریا که موفق به عقب‌نشینی به سمت شمال و استقرار در کشور هم‌پیمان حکمتستان شده بودند، با حمایت همه‌جانبه‌ی آن کشور، عملیات گسترده‌ی بازپس‌گیری را با نام «سپر آتشین» طراحی و اجرا کردند. این عملیات که با هماهنگی اطلاعاتی و پشتیبانی هوایی دقیق انجام شد، توانست در کمتر از چند ماه، خطوط دفاعی متفقین را در هم بشکند و تمامی مناطق اشغالی را آزاد کند. جنگ خلیج کادر، اگرچه کوتاه بود، اما درسی ماندگار از همبستگی ملی و اهمیت اتحادهای راهبردی برای کادریا به یادگار گذاشت.
-    </p>
-</div>
-
-                
-                 <!-- ====== جنگ سوم: جنگ کلاسی ====== -->
-<div class="war-card">
-    <img src="https://cdn.imgurl.ir/uploads/q815914_IMG_20260810_204411_038.jpg" alt="عبدالآراد شریف، الشیخ وحیدی، فرد مجهول" />
-    <div class="caption">📸 از راست: عبدالآراد شریف، الشیخ وحیدی، فرد مجهول</div>
-    
-    <h3>⚔️ جنگ کلاسی</h3>
-    <div class="date">📅 ۲۰۲۵</div>
-    <div class="location">📍 مناطق عملیاتی قاره‌های ۹۰۱ و ۹۰۲</div>
-    <p>
-        جنگ کلاسی، درگیری‌ای گسترده و فراقاره‌ای بود که در سال ۲۰۲۵ میان کشورهای مستقر در دو قاره‌ی بزرگ رخ داد. این جنگ میان ائتلاف کشورهای قاره‌ی ۹۰۱ به رهبری **جیش الوحیدی** و ائتلاف کشورهای قاره‌ی ۹۰۲ شکل گرفت. جیش الوحیدی که به عنوان قدرتی مسلط در قاره‌ی ۹۰۱ شناخته می‌شد، با اتکا به حمایت گسترده‌ی کشورهای هم‌پیمان خود، در برابر ائتلاف قاره‌ی ۹۰۲ که از ساختارهای منظم و فناوری پیشرفته بهره‌مند بود، صف‌آرایی کرد. این جنگ که از اختلافات عمیق بر سر منابع انرژی، مسیرهای تجاری و حوزه‌های نفوذ سرچشمه گرفت، به سرعت به یک بحران جهانی تبدیل شد و توجه تمامی قدرت‌های بین‌المللی را به خود جلب کرد. نبردهای سنگین در مرزهای آبی و خشکی دو قاره رخ داد و هر دو طرف متحمل خسارات جبران‌ناپذیری شدند. در نهایت، با وساطت سازمان‌های بین‌المللی و تلاش‌های دیپلماتیک گسترده، آتش‌بسی برقرار شد و دو طرف بر سر توافقی جامع برای تقسیم منابع و تعیین حوزه‌های نفوذ به اجماع رسیدند. جنگ کلاسی، اگرچه ویرانی‌های زیادی به همراه داشت، اما به عنوان نقطه‌ی عطفی در تاریخ روابط بین‌قاره‌ای ثبت شد و درس‌های ارزشمندی برای آینده‌ی دیپلماسی جهانی به یادگار گذاشت.
-    </p>
-</div>
-
-                <!-- ====== جنگ چهارم: عملیات تخریب ====== -->
-<div class="war-card">
-    <img src="https://cdn.imgurl.ir/uploads/b214_IMG_20260810_205244_802.jpg" alt="سخنگوی تخریب در حال سخنرانی" />
-    <div class="caption">📸 سخنگوی تخریب در حال سخنرانی</div>
-    
-    <h3>⚔️ عملیات تخریب</h3>
-    <div class="date">📅 ۲۰۲۶ – اکنون</div>
-    <div class="location">📍 جبهه‌های مختلف کادریا</div>
-    <p>
-        عملیات تخریب، یک کارزار جامع و چندبعدی است که از سال ۲۰۲۶ با هدف اصلی مقابله با آرین مفسد، رهبر شبکه‌های سازمان‌یافته‌ی اخلالگر، طراحی و به اجرا درآمده است. این عملیات که در ابتدا با رهبری آیت‌الله رحمان آغاز شد، با هماهنگی نیروهای مسلح ایالات متحده کادریا و همراهی و حمایت اطلاعاتی و لجستیکی چندین کشور هم‌پیمان منطقه‌ای و فرامنطقه‌ای ادامه یافت. یکی از عوامل کلیدی موفقیت این کارزار، نفوذ مهره‌ی اطلاعاتی **سلین** در درون شبکه‌های آرین بود که با ارائه‌ی اطلاعات حیاتی، ضربات قاطع و کوبنده‌ای را بر پیکره‌ی سازمان او وارد ساخت. این کارزار ترکیبی از اقدامات اطلاعاتی، حملات جراحی و محاصره‌های اقتصادی را شامل می‌شود که در فازهای مختلف و با دقت بالایی در حال اجرا است. ضربات مهلکی که بر پیکره‌ی شبکه‌های وابسته به آرین وارد شده، توان عملیاتی آنان را به شدت کاهش داده و امنیت داخلی را به طور چشمگیری بهبود بخشیده است. با وجود پیشرفت‌های قابل‌توجه، عملیات تخریب همچنان ادامه دارد و نیروهای مسلح کادریا با عزمی راسخ در حال پیگیری اهداف این کارزار هستند تا با برخورد قاطع، امنیت پایدار را برای منطقه به ارمغان آورند.
-    </p>
-</div>
-                    
-
-                <!-- ====== جنگ پنجم: عملیات پودرش ====== -->
-                <div class="war-card">
-                    <img src="https://cdn.imgurl.ir/uploads/s337118_IMG_20260810_205346_684.jpg" alt="دونالد جی ترامپ، باربد" />
-                    <div class="caption">📸 از راست: دونالد جی ترامپ، باربد</div>
-                    
-                    <h3>⚔️ عملیات پودرش</h3>
-                    <div class="date">📅 ۲۰۲۶</div>
-                    <div class="location">📍 مناطق عملیاتی تحت امر پودرش</div>
-                    <p>
-                        عملیات پودرش، یک عملیات تاکتیکی، سریع و فوق‌العاده دقیق بود که در سال ۲۰۲۶ با هدف انهدام شبکه‌های نفوذی وابسته به باربد مفسد، یکی از چهره‌های شاخص و خطرناک در منطقه، به مرحله‌ی اجرا درآمد. باربد که با بهره‌گیری از پوشش‌های تجاری و دیپلماتیک، مدتی طولانی فعالیت‌های اخلالگرانه‌ی خود را پنهان کرده بود، به یک تهدید جدی برای امنیت چندین کشور تبدیل شده بود. در این مسیر، ایالات متحده کادریا با درک عمق تهدید، با پیوستن به گروه عملیاتی ویژه‌ی پودرش، که تحت هدایت مستقیم فرمانده‌ی باتجربه‌ و استراتژیست «ناگت» عمل می‌کرد، هماهنگی بی‌نظیری را برای ریشه‌کنی این تهدید به نمایش گذاشت. عملیات با استفاده از آخرین فناوری‌های شناسایی و با اجرای چندین حمله‌ی همزمان به مراکز کلیدی باربد، هرگونه واکنش هماهنگ از سوی شبکه‌های او را غیرممکن ساخت. این یورش کوتاه‌مدت و حساب‌شده، با سرعت و دقتی مثال‌زدنی پیش رفت و در کمتر از زمان پیش‌بینی‌شده، تمامی گره‌های عملیاتی و پشتیبانی باربد را گسست. نهایتاً، باربد که در تنگنای کامل و بدون هیچ راه فراری قرار گرفته بود، مجبور به تسلیم شد و بدین ترتیب، این عملیات با یک پیروزی قاطع و بازگشت آرامش پایدار به منطقه به پایان رسید.
-                    </p>
-                </div>
-
-                <!-- ====== جنگ ششم: عملیات کوبش ====== -->
-                <div class="war-card">
-                    <img src="https://cdn.imgurl.ir/uploads/n291472_IMG_20260810_204922_078.jpg" alt="سخنرانی گروه کوبش" />
-                    <div class="caption">📸 سخنرانی گروه کوبش</div>
-                    
-                    <h3>⚔️ عملیات کوبش</h3>
-                    <div class="date">📅 ۲۰۲۵ – اکنون</div>
-                    <div class="location">📍 جبهه‌های نبرد علیه رحمانستان</div>
-                    <p>
-                        عملیات کوبش، بدون شک بزرگ‌ترین، پیچیده‌ترین و تأثیرگذارترین کارزار نظامی منطقه در دهه‌ی اخیر است که با هدفی راهبردی و حیاتی، یعنی مقابله با رحمان مفسد و ریشه‌کنی کامل نفوذ و شبکه‌های فساد او در کشور رحمانستان، آغاز گردید. رحمان مفسد که سال‌ها با استفاده از منابع مالی عظیم و روابط فراملی، امنیت و ثبات چندین کشور را تحت تأثیر منفی خود قرار داده بود، به عنوان یک تهدید وجودی برای نظم منطقه‌ای شناخته می‌شد. عملیات کوبش با همکاری و اتحاد بی‌سابقه‌ی تیم قدرتمند کوبش و با پیوستن همه‌جانبه‌ی ایالات متحده کادریا به این ائتلاف عظیم، کلید خورد. حملات سنگین، همه‌جانبه و مداوم که از سال ۲۰۲۵ تاکنون علیه پایگاه‌ها، خطوط تدارکاتی و مراکز تصمیم‌گیری رحمان ادامه دارد، ضربات مهلک و جبران‌ناپذیری بر پیکره‌ی شبکه‌های گسترده‌ی فساد وابسته به او وارد کرده است. اگرچه این جنگ سخت و پیچیده تا به امروز به پایان نرسیده و همچنان ادامه دارد، اما اراده‌ی پولادین رزمندگان، همبستگی مثال‌زدنی نیروهای بین‌المللی و پیشرفت‌های چشمگیر میدانی، چشم‌اندازی روشن و امیدوارکننده را برای پیروزی قاطع و نهایی بر این تهدید بزرگ ترسیم می‌کند. افکار عمومی منطقه، این عملیات را نماد عزم راسخ برای مبارزه با فساد و برقراری عدالت می‌دانند.
-                    </p>
-                </div>
-
-            </div> <!-- بسته شدن war-grid -->
-        </section> <!-- بسته شدن بخش wars -->
-<!-- ====== بخش اتحادهای نظامی ====== -->
-<section id="alliances" class="about-box" style="margin-top: 40px;">
-    <h2 class="section-title" style="border-right: 7px solid #d4af37; padding-right: 18px;">🤝 اتحادهای نظامی</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
-        
-        <!-- کارت: ستاد کل نیروهای کوبشگر -->
-        <div style="background: #f5f5f5; border-radius: 14px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #e0dccd; text-align: center; transition: 0.3s;">
-            <img src="https://cdn.imgurl.ir/uploads/t123764_InShot_20260828_191217699.png" alt="لوگوی کوبشگر" style="width: 60px; height: auto; margin-bottom: 6px; display: block; margin-left: auto; margin-right: auto;" />
-            <h4 style="font-size: 16px; font-weight: 700; color: #1e1e1e; margin: 0;">ستاد کل نیروهای کوبشگر</h4>
-        </div>
-
-        <!-- کارت: ستاد کل نیروهای تخریبگر -->
-        <div style="background: #f5f5f5; border-radius: 14px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #e0dccd; text-align: center; transition: 0.3s;">
-            <img src="https://cdn.imgurl.ir/uploads/x947561_InShot_20260828_191128721.png" alt="لوگوی تخریبگر" style="width: 60px; height: auto; margin-bottom: 6px; display: block; margin-left: auto; margin-right: auto;" />
-            <h4 style="font-size: 16px; font-weight: 700; color: #1e1e1e; margin: 0;">ستاد کل نیروهای تخریبگر</h4>
-        </div>
-
-        <!-- کارت: ارتش متحد ۹۰۲ -->
-        <div style="background: #f5f5f5; border-radius: 14px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #e0dccd; text-align: center; transition: 0.3s; opacity: 0.8;">
-            <img src="https://cdn.imgurl.ir/uploads/x14052_InShot_20260828_191237347.png" alt="لوگوی ارتش متحد ۹۰۲" style="width: 60px; height: auto; margin-bottom: 6px; display: block; margin-left: auto; margin-right: auto;" />
-            <h4 style="font-size: 16px; font-weight: 700; color: #1e1e1e; margin: 0;">ارتش متحد ۹۰۲</h4>
-        </div>
-
-        <!-- کارت: ارتش متحد ۰۳ -->
-        <div style="background: #f5f5f5; border-radius: 14px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #e0dccd; text-align: center; transition: 0.3s; opacity: 0.8;">
-            <img src="https://cdn.imgurl.ir/uploads/t08555_InShot_20260828_191147143.png" alt="لوگوی ارتش متحد ۰۳" style="width: 60px; height: auto; margin-bottom: 6px; display: block; margin-left: auto; margin-right: auto;" />
-            <h4 style="font-size: 16px; font-weight: 700; color: #1e1e1e; margin: 0;">ارتش متحد ۰۳</h4>
-        </div>
-
-        <!-- کارت: ستاد کل نیروهای پودرشگر -->
-        <div style="background: #f5f5f5; border-radius: 14px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #e0dccd; text-align: center; transition: 0.3s; opacity: 0.8; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 8px; right: 8px; background: #cc0000; color: #fff; font-weight: 800; font-size: 12px; padding: 2px 12px; border-radius: 20px; letter-spacing: 1px; box-shadow: 0 2px 8px rgba(204, 0, 0, 0.3);">END</div>
-            <img src="https://cdn.imgurl.ir/uploads/f578761_InShot_20260828_191105848.png" alt="لوگوی پودرشگر" style="width: 60px; height: auto; margin-bottom: 6px; display: block; margin-left: auto; margin-right: auto;" />
-            <h4 style="font-size: 16px; font-weight: 700; color: #1e1e1e; margin: 0;">ستاد کل نیروهای پودرشگر</h4>
-        </div>
-
-    </div>
-</section>
-        <!-- ====== تماس با ما ====== -->
-        <section id="contact" class="contact-section">
-            <h2 class="section-title" style="border-right: none; padding-right: 0; text-align: center;">📢 ما را دنبال کنید</h2>
-            <p style="text-align: center; font-size: 18px;">
-                <strong>کانال رسمی تلگرام:</strong><br />
-                <a href="https://t.me/USKOFFI" target="_blank">t.me/USKOFFI</a>
-            </p>
-        </section>
-
-    </main> <!-- بسته شدن main -->
-
-    <!-- ====== عکس شناور ====== -->
-    <img src="https://cdn.imgurl.ir/uploads/v907064_InShot_20260811_133247413.png" 
-         alt="USK" 
-         class="floating-kad" />
-
-    <!-- ====== فوتر ====== -->
-    <footer>
-        <div class="container">
-            <div>
-                <a href="index.html">خانه</a>
-                <a href="#wars">مروری بر جنگ‌ها</a>
-                <a href="#contact">تماس</a>
-            </div>
-            <div class="copy">
-                © ۲۰۲۶ تمامی حقوق برای ایالات متحدهٔ کادریا محفوظ است.
-            </div>
-        </div>
-    </footer>
-<!-- ====== عکس شناور سمت چپ ====== -->
-<img src="https://cdn.imgurl.ir/uploads/f01689_InShot_20260901_100224143.png" 
-     alt="تصویر شناور" 
-     style="position: fixed; left: 0; top: 45%; transform: translateY(-50%); width: 120px; height: auto; z-index: 999; opacity: 0.85; transition: 0.3s ease; box-shadow: none; border: none; background: transparent;" 
-     onmouseover="this.style.opacity='1'; this.style.transform='translateY(-50%) scale(1.04)';" 
-     onmouseout="this.style.opacity='0.85'; this.style.transform='translateY(-50%) scale(1)';" />
-<!-- ====== مثلث افقی شناور ====== -->
-<div id="newsTriangle" style="position: fixed; top: 30%; right: 0; z-index: 1000; cursor: pointer; transition: 0.4s ease; width: 80px; height: 60px; background: #d4af37; clip-path: polygon(0% 50%, 100% 0%, 100% 100%); display: flex; align-items: center; justify-content: flex-start; padding-left: 6px; color: #fff; font-weight: 700; font-size: 12px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);" onclick="toggleNews()">
-    NEWS
-</div>
-
-<!-- ====== مثلث افقی شناور ====== -->
-<div id="newsTriangle" style="position: fixed; top: 30%; right: 0; z-index: 1000; cursor: pointer; transition: 0.4s ease; width: 80px; height: 60px; background: #d4af37; clip-path: polygon(0% 50%, 100% 0%, 100% 100%); display: flex; align-items: center; justify-content: flex-start; padding-left: 6px; color: #fff; font-weight: 700; font-size: 12px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);" onclick="toggleNews()">
-    NEWS
-</div>
-
-<!-- ====== پنجره کشویی خبر ====== -->
-<div id="newsPopup" style="position: fixed; top: calc(30% + 70px); right: 10px; z-index: 999; width: 90%; max-width: 600px; background: #ffffff; border-radius: 16px; padding: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); border: 2px solid #d4af37; opacity: 0; pointer-events: none; transition: 0.4s ease; max-height: 70vh; overflow-y: auto; direction: rtl;">
-
-    <!-- ====== خبر ۱: پایان کوبش (جدیدترین) ====== -->
-    <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #eee;">
-
-        <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 6px;">خبر فوری</span>
-        
-        <a href="https://uskgov.github.io/kbc.github.io/Post3.html" target="_blank" style="text-decoration: none; color: inherit; width: 100%;">
-            <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0; width: 100%; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#1e1e1e'">
-                پایان عملیات کوبش؛ توافق تاریخی میان کوبشگران و رحمان
-            </h3>
-        </a>
-
-        <div style="color: #888; font-size: 11px; margin-bottom: 8px; width: 100%;">۸ اکتبر ۲۰۲۶</div>
-
-        <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.7; margin: 0; width: 100%;">
-            پس از ۲۵۲ روز تنش و درگیری، سرانجام رحمان و کوبشگران با امضای توافقی رسمی، به این فصل پرتنش پایان دادند و فصل جدیدی در منطقه آغاز شد.
-        </p>
-
-        <a href="https://uskgov.github.io/kbc.github.io/Post3.html" target="_blank" style="display: inline-block; margin-top: 12px; color: #d4af37; font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottomColor='#d4af37'" onmouseout="this.style.borderBottomColor='transparent'">
-            مشاهده کامل خبر در KBC News →
-        </a>
-    </div>
-
-    <!-- ====== خبر ۲: وضعیت قرمز ====== -->
-    <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #eee;">
-
-        <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 6px;">سیاسی</span>
-        
-        <a href="https://uskgov.github.io/kbc.github.io/Post2.html" target="_blank" style="text-decoration: none; color: inherit; width: 100%;">
-            <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0; width: 100%; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#1e1e1e'">
-                وضعیت قرمز در هیاهوی آغاز سال تحصیلی
-            </h3>
-        </a>
-
-        <div style="color: #888; font-size: 11px; margin-bottom: 8px; width: 100%;">۱۹ سپتامبر ۲۰۲۶</div>
-
-        <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.7; margin: 0; width: 100%;">
-            در حالی که سال تحصیلی جدید در حال آغاز شدن است، تنش‌ها میان کوبشگران و رحمان شدید شده و احتمال درگیری گسترده در روزهای آتی بسیار بالاست.
-        </p>
-
-        <a href="https://uskgov.github.io/kbc.github.io/Post2.html" target="_blank" style="display: inline-block; margin-top: 12px; color: #d4af37; font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottomColor='#d4af37'" onmouseout="this.style.borderBottomColor='transparent'">
-            مشاهده کامل خبر در KBC News →
-        </a>
-    </div>
-
-    <!-- ====== خبر ۳: مورگان ====== -->
-    <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #eee;">
-
-        <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 6px;">سیاسی</span>
-        
-        <a href="https://uskgov.github.io/kbc.github.io/Post.html" target="_blank" style="text-decoration: none; color: inherit; width: 100%;">
-            <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0; width: 100%; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#1e1e1e'">
-                ژنرال مورگان به عنوان رئیس کل سپاه پاسداران کادریا منصوب شد
-            </h3>
-        </a>
-
-        <div style="color: #888; font-size: 11px; margin-bottom: 8px; width: 100%;">۱ سپتامبر ۲۰۲۶</div>
-
-        <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.7; margin: 0; width: 100%;">
-            طبق اعلام رسمی مقامات کادریا، ژنرال دکستر مورگان به عنوان رئیس کل سپاه پاسداران منصوب شد.
-        </p>
-
-        <a href="https://uskgov.github.io/kbc.github.io/Post.html" target="_blank" style="display: inline-block; margin-top: 12px; color: #d4af37; font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottomColor='#d4af37'" onmouseout="this.style.borderBottomColor='transparent'">
-            مشاهده کامل خبر در KBC News →
-        </a>
-    </div>
-
-    <!-- ====== خبر ۴: افتتاح سایت ====== -->
-    <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
-
-        <span style="display: inline-block; background: #d4af37; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 30px; margin-bottom: 6px;">سیاسی</span>
-        
-        <h3 style="font-size: 16px; color: #1e1e1e; margin: 0 0 2px 0; width: 100%;">
-            وبسایت رسمی کادریا افتتاح شد
-        </h3>
-
-        <div style="color: #888; font-size: 11px; margin-bottom: 8px; width: 100%;">۱۰ آگوست ۲۰۲۶</div>
-
-        <p style="color: #2c3e50; font-size: 13px; font-weight: 300; line-height: 1.7; margin: 0; width: 100%;">
-            وبسایت رسمی ایالات متحدهٔ کادریا با هدف ارائهٔ اطلاعات شفاف و به‌روز به شهروندان و جامعهٔ بین‌المللی افتتاح شد.
-        </p>
-    </div>
-
-</div>
-
-<!-- ====== اسکریپت باز و بسته شدن ====== -->
-<script>
-function toggleNews() {
-    const triangle = document.getElementById('newsTriangle');
-    const popup = document.getElementById('newsPopup');
-
-    if (popup.style.opacity === '1') {
-        popup.style.opacity = '0';
-        popup.style.pointerEvents = 'none';
-        triangle.style.opacity = '1';
-        triangle.style.pointerEvents = 'auto';
-        triangle.style.transform = 'scale(1)';
-    } else {
-        popup.style.opacity = '1';
-        popup.style.pointerEvents = 'auto';
-        triangle.style.opacity = '0.9';
-        triangle.style.pointerEvents = 'auto';
-        triangle.style.transform = 'scale(1.1)';
-    }
-}
-</script>
-</div>
-
-<!-- ====== اسکریپت باز و بسته شدن ====== -->
-<script>
-function toggleNews() {
-    const triangle = document.getElementById('newsTriangle');
-    const popup = document.getElementById('newsPopup');
-
-    if (popup.style.opacity === '1') {
-        popup.style.opacity = '0';
-        popup.style.pointerEvents = 'none';
-        triangle.style.opacity = '1';
-        triangle.style.pointerEvents = 'auto';
-        triangle.style.transform = 'scale(1)';
-    } else {
-        popup.style.opacity = '1';
-        popup.style.pointerEvents = 'auto';
-        triangle.style.opacity = '0.9';
-        triangle.style.pointerEvents = 'auto';
-        triangle.style.transform = 'scale(1.1)';
-    }
-}
-</script>
-
-<!-- ====== استایل اسکرول ====== -->
-<style>
-#newsPopup::-webkit-scrollbar {
-    width: 4px;
-}
-#newsPopup::-webkit-scrollbar-thumb {
-    background: #d4af37;
-    border-radius: 10px;
-}
-#newsPopup::-webkit-scrollbar-track {
-    background: transparent;
-}
-</style>
-
-</body>
-</html>
+            <!-- جنگ ۲: خلیج کادر -->
+            <div class="war-card">
+                <img src="https://cdn.imgurl.ir/uploads/n57781_ChatGPT_Image______.png" alt="یگان زرهی" />
+                <div class="caption">📸 یگان زرهی کادریا پس از بازگشت به خاک یو اس کی در عملیات باز پس گیری دوم</div>
+                <h3>⚓ جنگ خلیج کادر</h3>
+                <div class="date">📅 ۲۰۲۴</div>
+                <div class="location">📍 سرزمین ایالات متحده کادریا</div>
+                <p>جنگ خلیج کادر، یکی از کوتاه‌مدت‌ترین اما سرنوشت‌سازترین درگیری‌های نظامی در منطقه بود که در سال ۲۰۲۴ به وقوع پیوست. این جنگ، مجموعه حملات هماهنگ ارتش متفق جوانستان و قهرمانلند به خاک ایالات متحده کادریا بود که با هدف تصرف سریع سرزمین‌های حاصل‌خیز و تأسیسات استراتژیک جنوبی طراحی شده بود. متفقین با بهره‌گیری از برتری عددی و غافلگیری تاکتیکی، توانستند در نخستین روزهای تهاجم، بخش‌های وسیعی از خاک کادریا از جمله مناطق ساحلی خلیج کادر را به اشغال خود درآورند. این اشغال کامل، ضربه‌ی سنگینی به روحیه‌ی ملی و توان دفاعی کادریا وارد کرد. با این حال، نیروهای باقی‌مانده‌ی ارتش کادریا که موفق به عقب‌نشینی به سمت شمال و استقرار در کشور هم‌پیمان حکمتستان شده بودند، با حمایت همه‌جانبه‌ی آن کشور، عملیات گسترده‌ی بازپس‌گیری را با نام «سپر آتشین» طراحی و اجرا کردند. این عملیات 
